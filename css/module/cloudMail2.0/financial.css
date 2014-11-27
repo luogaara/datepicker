@@ -1,0 +1,194 @@
+body{background:none #f6f6f6;}
+.c_e53353{color:#e53353;}
+.c_1a75ca{color:#1a75ca;}/* 蓝色 */
+.c_ff8a00{color:#ff8a00;}/* 黄色 */
+.i-bigSafe,.i-safe,.i-tipsJt{background:url(../../../images/module/cloudMail2.0/financial/style.png) no-repeat}
+.i-bigSafe{width:26px;height:32px;background-position:0 0;}
+.i-safe{width:13px;height:16px;background-position:-32px 0;}
+.i-tipsJt{width:6px;height:11px;background-position:-49px 0;}
+.relative{ position: relative;*zoom:1;}
+.green{color:#32a114;}
+.g-header{ background:url(../../../images/module/cloudMail2.0/financial/hd.jpg) no-repeat center top #ffec69; margin-bottom: 10px;border-bottom: #d4d4d4 solid 1px; min-width:980px;}
+.g-header .inner{width: 980px; margin: auto; height: 79px; position: relative;*zoom:1;}
+.g-footer{ line-height: 22px; padding: 10px; border-top: #e8e8e8 solid 1px; color:#666; text-align: center; background: #fff;min-width:980px;}
+.tricTopMenu{text-align:center;padding-left:5px; padding-top: 46px;}
+.tricTopMenu li{display:inline-block;*display:inline; /*margin-left:-4px;*/ position:relative;}
+.tricTopMenu a.menu{width: 85px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; outline:none;font-size: 14px;padding:5px 15px;background:#f6f6f6; color:#666; border:1px solid #d4d4d4;border-bottom:0; border-right:0; display:inline-block; }
+.tricTopMenu a.check{background:#fff;border-top:2px solid #2592f8; color: #444;}
+.g-body{width: 980px; margin: auto;}
+.m-section{margin-bottom: 15px;}
+.m-section .hd{border-bottom: #e53353 solid 3px; position: relative;*zoom:1;}
+.m-section .hd h2{  font-weight: 300;line-height: 34px; color: #444; font-size: 18px; padding-left: 11px; position: relative;*zoom:1;}
+.m-section .hd h2 .rLine{width: 3px; height: 16px; background:#e53353; font-size: 0;  position: absolute; top:9px; left:0; }
+.m-section .bd{background: #fff;border: #e8e8e8 solid 1px;border-top: none;}
+.m-section .ftB{width: 980px;}
+.m-section .ftB .ft1,.m-section .ftB .ft2{display: block;font-size: 0;height: 1px; border: #e8e8e8 solid 1px; border-top: none; width: 974px; margin: auto;}
+.m-section .ftB .ft2{width: 968px;}
+.m-section .hd .backLnk{ position: absolute; top:8px; left:102px; font-size: 14px;}
+.btnR,.btnY,.btnDisable{width: 100px; height: 30px; line-height: 30px; text-align:center; border: none; display: inline-block; background: #e53353; color: #fff;font-size: 16px;}
+.btnR:hover{color: #fff;}
+.btnDisable,.btnDisable:hover{background: #e8e8e8;color: #aaa; cursor: default;}
+.btnY{background: #fbce1b;}
+.btnY:hover{color: #fff;}
+.btnGa{ padding: 0 10px; line-height: 22px; background: #fafafa; border: #d4d4d4 solid 1px; display: inline-block; color:#666;}
+.btnGa:hover{color:#666;}
+.wAuto{ width: auto; padding: 0 20px;}
+.accInfo{font-size: 14px;}
+.accInfo .lSide{float: left; width: 50%; }
+.accInfo .lSide dl{padding:24px 0 28px 33px; border-right:#e8e8e8 solid 1px; }
+.accInfo .rSide{float: left;padding:26px 0 0 115px;}
+dd.num{vertical-align: baseline; margin-top: -3px;}
+dd.num strong{ font-size: 35px; color:#e53353; font-weight: 300;}
+dd.num em{color:#e53353;}
+.accInfo .btns{margin-top: 7px;}
+
+.accLogin{ padding: 28px 58px;}
+
+.productList .bd{background: #fff; overflow: hidden; _width: 978px;}
+.recPdt {width:990px;}
+.recPdt li{ width: 244px; height: 204px; border: #f0f0f0 solid 1px; border-style: none solid solid none; float: left;}
+.productList .ftB{margin-top: -1px;position: relative;}
+.recPdt dl{padding: 20px 0 0 25px;}
+.recPdt dt{color:#444; font-size: 16px; font-weight: 700;width: 12em;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; padding-bottom: 8px;}
+.recPdt dt a{color:#444; text-decoration: none;}
+.recPdt dt a:hover{color:#444; text-decoration: underline;}
+.recPdt dd{margin-bottom: 5px;}
+.recPdt dd.btns{ margin-top: 10px; width: 193px; line-height: 30px;}
+.recPdt dd.btns span.fl{width: 110px; white-space: nowrap; overflow: hidden;}
+.recPdt .yel{color:#ff8a00;}
+.recPdt dd.btns a{width: 80px; height: 26px;line-height: 26px; font-size: 14px;}
+.recPdt .num strong,.recPdt .num em{font-weight: 700;}
+.commonTbl{ width: 100%;background: #fff;border: #e8e8e8 double 1px;border-top: none; border-collapse: collapse;}
+.commonTbl th{background: #fff9c1; height: 30px; border-right:#d9d4a4 solid 1px; font-size: 14px;}
+.commonTbl td{padding: 5px 0; text-align: center; border: #f0f0f0 solid 1px; border-style: none solid solid solid; line-height: 16px; height: 30px }
+.commonTbl .nameC{padding-left:30px;padding-right:30px; text-align: left; white-space: nowrap;}
+.commonTbl .odd td,.commonTbl .bInfo td{ background: #fafafa;}
+.commonTbl .bInfo td{ border-right:none; border-left: none; height:20px; vertical-align: middle;}
+.commonTbl .bInfo .date{padding-left:18px; text-align: left;}
+.commonTbl .org{color:#ff8a00;}
+.tradeTbl td{height:32px;}
+a.disable,a.disable:hover{ color:#aaa;}
+.dtBasic{ padding: 20px;}
+.dtBasic .benifit,.dtBasic .date{ width: 90px;}
+.dtBasic .benifit h3,.dtBasic .date h3{height:28px; text-align: center;background-color: #e53353;color:#fff; font-size: 14px; line-height: 28px;
+border-radius: 6px 6px 0 0;
+-webkit-border-radius: 6px 6px 0 0;
+-moz-border-radius: 6px 6px 0 0;
+-o-border-radius: 6px 6px 0 0;
+}
+.dtBasic .benifit{margin-right: 15px;_margin-right:13px;}
+.dtBasic .benifit .rate,.dtBasic .date p{border: #d4d4d4 solid 1px; border-top: none;padding: 14px 0;text-align: center;vertical-align: baseline;}
+.rate strong{color:#e53353; font-size: 30px;}
+.dtBasic .date strong{font-size: 30px;}
+.dtBasic .tit{ font-weight: 700; font-size: 30px; margin-top: -8px;}
+.dtBasic .stat{ padding-top: 2px;}
+.dtBasic .buy{padding-top: 15px;}
+.financingTipsLayer{position:absolute;left:272px;_left:168px;top:0;z-index:9;width:350px;padding:10px;background-color:#FFFBE9;border:1px solid #EBE0AF;color:#947a63;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.financingTipsLayer .i-tipsJt{position:absolute;left:-6px;top:5px;}
+
+.pagination a{margin-left: 5px;}
+
+.dtTbl{border-collapse: collapse; width: 100%; background: #fff;}
+.dtTbl th,.dtTbl td{width: 25%; border: #e8e8e8 solid 1px; }
+.dtTbl th{text-align: left; text-indent: 70px; background: #fafafa;}
+.dtTbl td{text-align: center; height: 30px; vertical-align: middle;}
+.dateFilter{padding-bottom: 8px;}
+.selectDate{ vertical-align: top; }
+.selectDate label{ line-height: 30px;}
+.selectDate .dateIpt{ width: 368px; height:28px; background: #fff;border: #d4d4d4 solid 1px; line-height: 28px; text-indent: 6px;vertical-align: top;}
+.selectDate .iptBox{position: relative; *zoom:1; }
+.selectDate .i_ymd{position: absolute; right:7px; top:7px;}
+.dateFilter .btnR{width:72px; font-size: 14px;*position: relative;*top:1px;}
+
+.dialogBox{width: 460px;}
+.dialogBox .hd{height:36px; line-height: 36px; position: relative;*zoom:1;background: #e53353;}
+.dialogBox .hd h3{text-align: center; font-size: 14px; color:#fff;}
+.dialogBox .hd .close{font-family: Tahoma,Arial, "Helvetica Neue", Helvetica, sans-serif; width: 30px; font-weight: 700; text-align: center;font-size: 14px;  position: absolute;top:0; right:0;color:#fff; filter:alpha(opacity=70);opacity: .7;}
+.dialogBox .hd .close:hover{filter:alpha(opacity=100);opacity: 1;}
+.dialogBox .bd{background: #fff;}
+.dialogBox .sec{padding:24px 36px; line-height: 24px; font-size: 14px;}
+.dialogBox .chargeIpt{height:24px; line-height: 24px; width: 165px; text-indent: .5em; border: #a1a1a1 solid 1px;}
+.dialogBox .btnR{height:26px; line-height: 26px; width: 70px; font-size: 14px;}
+.dialogBox .ft{ background: #f8f8f8; border-top: #e8e8e8 solid 1px; color: #999; }
+.dialogBox .ft .sec{line-height: 18px;}
+.dialogBox .ft .c6{color:#666;}
+.dialogBox .status{font-size: 30px; line-height: 36px;}
+.dialogBox .statusLong{line-height: 36px; font-size: 14px; font-weight: 300;}
+
+.m-section .hd .more{ position: absolute;top: 8px;right:0;font-size: 14px;}
+.tLnk{color:#444;}
+.tLnk:hover{color:#444;text-decoration:underline!important;}
+.rulesDetail{padding: 14px 20px;font-size: 14px;}
+.rulesDetail p{padding-bottom:5px ;}
+.rulesDetail strong{color: #e53353; font-weight: 300;}
+
+.contentantBox{}
+.aside{width:190px;background:white;}
+.contentantBox .newContentant{width:654px;}
+.searchForm{padding:8px 8px 0;}
+.searchForm .searchForm_text{width:165px;padding:4px;border:1px solid #E3E3E3;display:block;}
+.searchForm .searchForm_btn{border:0;width:30px;height:22px;background:white;margin:1px 0 0 -31px;text-align:center;cursor:pointer;}
+.searchForm .i-search,.searchForm .i-searched{position:relative;top:5px;}
+.asideMenu{padding:10px 20px;margin:0 15px;*margin-top:-10px;}
+.asideMenu-line{border-bottom: 1px solid #E7E7E7;}
+.asideMenu h2{font-size:16px;font-weight:normal;color:#444;line-height:38px;height:38px;position:relative;cursor:pointer;}
+.asideMenu .i-dropR{position:absolute;left:-15px;top:15px;font-size:0;background:url(../../../images/module/cloudMail2.0/financial/r-tri.png) no-repeat 0 0; width: 4px; height: 7px; }
+
+.asideMenu li{line-height:24px;height:24px;}
+.asideMenu li a{color:#666;}
+.asideMenu li a.on{color:#3869be;}
+.mainSection{}
+.mainSection h3{font-size:20px;color:#444;padding-bottom:8px;border-bottom:1px solid #E7E7E7; font-weight: 300;} 
+.mainSection_directory{border-bottom:1px solid #E7E7E7;padding-bottom:10px;}
+.mainSection_directory .shCtrl{padding:10px 0 5px;font-size:14px;}
+.mainSection_directory li{line-height:22px;}
+.mainSection_directory a{color:#217fd3}
+.returnTopBtn{position:absolute;bottom:0px;right:-60px;cursor:pointer;}
+
+
+.helpover .title{border-bottom: 1px solid #d0d5de;padding-bottom: 7px;font-size: 14px;margin-bottom: 10px;color: #000;}
+.helpover .title a{color: #000;}
+.helpover .secnav li{list-style: none;padding-left: 35px;}
+.helpover .text{padding:5px 0 20px 0;font-size: 14px;}
+.stext-search{width: 13px;height: 13px;background-position: -2px -1612px;}
+.helpover .stext{border:1px solid #d0d5de;margin:15px 10px 10px 10px;}
+.helpover .stext input{border:0;padding:5px 0 5px 10px;width:134px;height: 20px;line-height: 20px;}
+.helpover .text h1{text-align: center;font-size: 20px;color: #000;padding-bottom: 10px;}
+.helpover .text p{text-indent: 2em;line-height: 25px;}
+.helpover .text p.ptw{text-indent: 4em;}
+.helpover .text p.ptw6{text-indent: 6em;}
+.helpover .text h3{color: #333;font-size: 14px;padding:5px 0;}
+.helpover .text h4{color: #666;font-size: 13px;padding:3px 0;text-indent: 1em;}
+
+.helpover .text .faq_tbl p{text-indent: 0;}
+.helpover .text .faq_tbl td{ border:#e3e3e3 solid 1px; text-align: center; padding: 5px;}
+.helpover .text .faq_tbl{border-collapse: collapse;width: 100%;}
+
+.m-section .helpLnkList{ background:url(../../../images/module/cloudMail2.0/financial/help.png) no-repeat 0 0; height: 161px; position: relative; *zoom:1;}
+.m-section .helpLnkList .faq{ position: absolute; top: 65px; left:75px;}
+.m-section .helpLnkList .faq a,.m-section .helpLnkList .faq a:hover{display:block;background:url(../../../images/module/cloudMail2.0/financial/dot.png) no-repeat left center; line-height: 22px; font-size: 14px;color:#444; padding-left: 9px;}
+.m-section .helpLnkList .faq li{height: 22px;}
+.helpover .faqImage{/*border: #e8e8e8 solid 1px;*/ max-width: 686px; *width: 686px;}
+
+.type-pic1,.type-pic2{background:url(../../../images/module/cloudMail2.0/financial/dingqibao.png) no-repeat 0 0; width: 108px; height: 205px; position: relative; z-index: 1;}
+.type-pic2{background-position: 0 -238px;}
+.list-outer-fix{ width: 1200px;}
+
+.productList-new .recPdt{ margin-left: -10px;}
+.productList-new .recPdt li{width: 293px; background-color: #fff;}
+.productList-new .recPdt dl{padding: 20px 0 0 40px;}
+.productList-new .recPdt dd.btns{width: 210px;}
+
+.noProduct-bg-1{ background:url(../../../images/module/cloudMail2.0/financial/empty1.jpg) no-repeat left center;}
+.noProduct-bg-2{ background:url(../../../images/module/cloudMail2.0/financial/empty2.jpg) no-repeat left center;}
+
+.i-book{background:url(../../../images/module/cloudMail2.0/financial/book.png) no-repeat 0 0; display: inline-block; width: 20px; height: 17px; vertical-align: top; position: relative; top:3px; margin-right: 6px;}
+.newGuideLnk{color:#666;}
+.newGuideLnk:hover{color: #175FA2;}
+
+.recPdt li{ position: relative;*zoom:1;}
+.recPdt li .i-yuangong{ width: 60px; height: 60px; background: url(../../../images/module/cloudMail2.0/financial/yuangong.png) no-repeat 0 0; position: absolute; top:0; right:0;}

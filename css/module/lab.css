@@ -1,0 +1,169 @@
+ html,body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,select,textarea,button,th,td,blockquote,address,var,pre{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,input,textarea,select,button,label{font-size:100%;}
+button,select,textarea,input{vertical-align:middle;color:#333;}
+input[type=button],input[type=submit],input[type=reset],input[type=file],button{cursor:pointer;overflow:visible;width:auto}
+button{padding:3px 5px 2px;}
+textarea{resize:vertical;}  /* word-wrap for opera, resize for webkit */
+a{color:#014282;text-decoration:none;}
+a:hover{text-decoration:underline;}
+a:focus{outline:none;}
+ul,ol{list-style:none outside none;}
+img,fieldset{border:none;}
+img{overflow:hidden;vertical-align:top;}
+em,address,var{font-style:normal;}
+sup,sub{vertical-align:baseline;}
+table{border-collapse:collapse;border-spacing:0;}
+i{display:inline-block;} /*用于修饰性小图标*/
+body{background-color:#fff;color:#333;font:12px/1.5 "lucida Grande",Verdana;} 
+/* ===== 通用按纽 =====   */
+.btnSure,.btnNormal,.btnTb,.btnRed{display:inline-block;cursor:pointer;color:#333;height:22px;padding-left:12px;overflow:hidden;background:url(../../images/global/button.png) 0 -227px no-repeat;vertical-align:middle;line-height:0;}
+.btnSure span,.btnNormal span,.btnTb span,.btnTb span.r,.btnRed span{display:inline-block;line-height:23px;height:100%;padding-right:12px;background:url(../../images/global/button.png) right -227px no-repeat;
+ overflow:visible;text-align:center;vertical-align:top;white-space:nowrap; }
+.btnSure:hover,.btnNormal:hover,.btnTb:hover,.btnRed:hover{text-decoration:none;}
+.btnSure:hover{background-position:0 -253px;}
+.btnSure:hover span{background-position:right -253px;}
+.btnNormal{background-position:0 -279px;}
+.btnNormal span{background-position:right -279px}
+.btnNormal:hover{background-position:0 -305px;}
+.btnNormal:hover span{background-position:right -305px;}
+
+.btnTb{height:26px;background-position:0 0;}
+.btnTb span,.btnTb span.r{line-height:27px\9;*line-height:26px;background-position:right 0;}
+.btnTb:hover{background-position:0 -28px;}
+.btnTb:hover span{background-position:right -28px;}
+.btnTb:hover span.r{background-position:right -140px;}
+.btnTb:hover span.two span{background-position:right -140px;}
+.btnTb:active{background-position:0 -56px;}
+.btnTb:active span{background-position:right -56px;}
+
+.btnTb.on{background-position:0 -56px;}
+.btnTb.on .i_triangle_d{background-position:-450px -22px;}
+.btnTb.on span{background-position:right -56px;}
+.btnTb .pr_20 .i_triangle_d{position:absolute;margin:10px 0 0 5px;*margin-top:5px;}
+
+.btnTb span.r{background-position:right -112px;}
+.btnTb span.r .i_triangle_d{position:absolute;margin:10px 0 0 13px;*margin-top:5px;}
+.btnTb span .r-line,.btnTb span .l-line{width:2px;height:25px;background:url(../../images/global/button.png) -183px -112px no-repeat;position:absolute;top:0;right:0px;}
+.btnTb span .l-line{left:-12px;top:0;}
+.btnTb.l-1{background-position:-1px 0;position:relative;}
+
+.btnTb span.two{position:relative;background:none;}
+.btnTb span.two span{position: absolute;width: 4px;height: 25px;top:0;right:0;_right:-1px;background-position:right -112px;}
+.btnTb:hover span.two span{background-position:right -140px;}
+.btnTb.on span.two span{background-position:right -168px;}
+.btnTb span.two span .i_triangle_d{margin: 10px 0 0 4px;}
+
+.btnGray,.btnGray:hover{background-position:0 -84px;color:#999;cursor:default;}
+.btnGray span,.btnGray:hover span{background-position:right -84px;}
+
+.btnRed{background-position:0 -331px;height:22px;}
+.btnRed span{background-position:right -331px;color:#FFF;}
+.btnRed:hover{background-position:0 -356px;}
+.btnRed:hover span{background-position:right -356px;}
+.btnMinOK,.btnMincancel{width:19px;height:19px;}
+.btnMinOK{background-position:-350px -131px;}
+.btnMincancel{background-position:-375px -131px;}
+
+.btnGrayn,.btnGrayn:hover{background-position:0 -382px;color:#999;cursor:default;}
+.btnGrayn span,.btnGrayn:hover span{background-position:right -382px;}
+ .laboratoryTopMes {
+            overflow: hidden;
+            margin: 15px 5px 15px 15px;
+        }
+
+        .laboratoryTopMes .img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .laboratoryTopMes dl {
+            margin-left: 80px;
+        }
+
+        .laboratoryTopMes dt {
+            font-size: 14px;
+            line-height: 30px;
+        }
+
+        .laboratoryTopMes dd {
+            line-height: 20px;
+        }
+
+        .laboratoryMain {
+            margin-top: 10px;
+        }
+
+        .laboratoryMain_mes {
+            border-top: 1px solid #BBB;
+            margin-top: -1px;
+            padding: 10px 0;
+        }
+
+        .laboratoryMain_mes a {
+            text-decoration: none;
+            color: #004284;
+        }
+
+        .laboratoryMain_mes a:hover {
+            text-decoration: underline;
+        }
+
+        .laboratoryMain_mes li {
+            overflow: auto;
+            _zoom: 1;
+            margin: 15px 5px 15px 15px;
+            border-bottom: 1px dotted #CCC;
+            min-height: 135px;height:auto!important;height:135px;
+        }
+
+        .laboratoryMain_mes li .img {
+            border: 1px solid #ccc;
+            width: 120px;
+            height: 105px;
+            padding: 3px 3px 3px 3px;
+        }
+
+        .laboratoryMain_mes li dl {
+            margin-left: 150px;
+        }
+
+        .laboratoryMain_mes li dt {
+            height: 18px;
+            line-height: 18px;
+            border-bottom: dashed 1px #999999;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .laboratoryMain_mes li dd {
+            line-height: 20px;
+            color: #666;
+            background-color: white;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        .laboratoryMain_mes li .ok {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            *top: 3px;
+            width: 19px;
+            height: 19px;
+            background: url(../../images/module/lab/starUec.png) 0 -17px no-repeat;
+        }
+
+        .btn {
+            cursor: pointer;
+            width: 80px;
+            line-height: 19px;
+            display: inline-block;
+            padding-top: 1px;
+            color: black;
+            margin-right: 10px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #8E8F8F;
+            border-radius: 1px;
+            box-shadow: 1px 1px 3px #CCC;
+        }

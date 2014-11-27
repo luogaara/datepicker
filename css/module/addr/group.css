@@ -1,0 +1,45 @@
+/* 通讯录首页 */
+body{font-family: "Microsoft YaHei",Arial;}
+/* 左右布局 */
+.groupMail-list-body{padding: 15px; background: #e8e8e8;}
+.groupMailUl .mailSec{ background: #fff; padding: 14px; margin-bottom: 10px;
+}
+.groupMailUl .mailDl{position: relative;*zoom:1; min-height:50px;height:auto !important;height:50px;}
+.groupMailUl .content{margin-left: 64px;}
+.groupMailUl .avatar{position: absolute;top:0; left:0}
+.groupMailUl .content{ margin-left:68px;}
+.groupMailUl .content .date{position: absolute;top:0; right: 0; font-size: 14px;}
+.groupMailUl .content .author{ padding-right: 146px; *zoom:1;}
+.groupMailUl .content .author a{font-size: 14px; color:#444; white-space: nowrap; display: block; overflow: hidden;_width:100%; 
+	-ms-text-overflow: ellipsis;
+text-overflow: ellipsis;  }
+.groupMailUl .content .quote{background: #f8f8f8; padding:10px 56px; margin-top: 10px; line-height: 20px; position: relative;*zoom:1; cursor: pointer;color: #666;}
+.groupMailUl .content .quoteHover{color:#444; background: #F3F3F3}
+.groupMailUl .content .quote:hover{background: #f3f3f3;color:#444;}
+.groupMailUl .content .quote p{line-height: 20px; max-height: 40px;_height:40px; overflow-y: hidden;}
+.groupMailUl .quoteMark1,.groupMailUl .quoteMark2{background:url(../../../images/module/addr/group_quote.png) no-repeat 0 0;  width: 27px; height: 24px; position: absolute;}
+.groupMailUl .quoteMark1{background-position: -233px -36px; left:16px; top: 10px;}
+.groupMailUl .quoteMark2{right:16px; bottom: 10px;}
+.groupMailUl .content .quote .quoteDate{position: absolute; top:0; right: 0;}
+.groupMailUl .content .mainContain{line-height: 1.6; margin-top: 10px;}
+.groupMailUl .content .quote p,.groupMailUl .content .mainContain p{word-break: break-all;}
+.groupMailUl .bg_1481e7{background-color: #1481e7;}
+.groupMailUl .bg_ffa800{background-color: #ffa800;}
+.groupMailUl .bg_20c838{background-color: #20c838;}
+.groupMailUl .bg_2ccab9{background-color: #2ccab9;}
+.groupMailDetailBox{ padding:15px;}
+.groupMailDetailBox .mainContain{height:240px; overflow: auto;}
+.groupMailDetailBox .content .date{font-size: 12px;color: #999; line-height: 21px;}
+
+.addr-ul-list li:hover {background-color: #E8E8E8;}
+
+.new-mail{ position: absolute; left:0; right:0; top:48px; width: 100%; text-align: center; z-index:5;}
+.new-mail .tip-box{padding:0 38px 0 20px; font-size: 12px; background-color: #ffffe4; border: #e4e4ce solid 1px; display: inline-block; position: relative;*zoom:1; height:24px; line-height: 24px;cursor: pointer;}
+.new-mail .close{ position: absolute; top:4px;right: 7px; width: 16px; height: 16px; background:url(../../../images/module/addr/close.png) no-repeat center center;}
+
+.avBg{ background-color: #1481e7; font-style: normal; text-align: center; display: block; width: 50px; height: 50px; line-height: 50px; font-family: "tahoma","Microsoft YaHei",'simhei',Arial; font-size: 30px; color: #fff;}
+.avBg span{display: block;}
+
+
+.bd_e8{border: 1px solid #e8e8e8}
+.bd_white{border: 1px solid #fff}

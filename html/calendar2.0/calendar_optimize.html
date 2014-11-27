@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../../css/common/global.css" type="text/css">
+    <link rel="stylesheet" href="../../css/common/frame.css" type="text/css">
+    <link rel="stylesheet" href="../../css/module/calendar.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../css/module/schedule.css" media="all" />
+    <link rel="stylesheet" href="../../css/module/schedule/square.css" type="text/css"/>
+    <style type="text/css">
+
+       
+    </style>
+        <script src="../../js/jquery-1.8.3.js"></script>
+        
+        <script type="text/javascript" src="../../js/calendarSelector.js"></script>
+    </head>
+    <body>
+	   <div style="margin:50px">
+            <button id="demo">wocaoasfasf</button>
+
+            <div style="clear:both"></div>
+        </div>
+
+        
+        
+        <script>
+        $(function() {
+          var calendar = new CalendarSelector({container:$("#demo"),date:'2001-11-12',dateFormat:'yyyy-MM-dd'});
+          calendar.onchange(function(date){
+            console.log(typeof date);
+            console.log(date);
+          });
+    
+
+        });
+    </script>
+    </body>
+</html>

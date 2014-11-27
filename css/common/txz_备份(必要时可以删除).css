@@ -1,0 +1,187 @@
+﻿ #umcpassportplugin * {
+	font-size: 12px;
+	font-family: "Microsoft YaHei",Verdana;
+	margin: 0;
+	padding: 0
+}
+#umcpassportplugin .passportTip .tipName {
+	color:#444;
+	font-size: 16px
+}
+#umcpassportplugin .passportTip .tipName em {
+	color: #34ae56;
+	font-size: 16px
+}
+#umcpassportplugin .passportTip em {
+	font-style: normal
+}
+#umcpassportplugin .passportTip em.gray {
+	color: #e0e0e0;
+	padding: 0 10px
+}
+#umcpassportplugin .passportTip a {
+	text-decoration: none;
+	color: #457fbd
+}
+#umcpassportplugin .passportTip ul {
+	width: 100%;
+	float: none
+}
+#umcpassportplugin .passportTip li {
+	color:#444;
+	border-bottom: 1px dotted #ccc;
+	list-style: none;
+	margin: 0 10px;
+	padding: 5px 8px;
+	clear: both;
+	float: none
+}
+#umcpassportplugin .passportTip a.txr {
+	float: right;
+	padding: 0;
+	color: #457fbd
+}
+#umcpassportplugin .passportTip a: hover {
+	text-decoration: none
+}
+#umcpassportplugin .feibar,#umcpassportplugin .mailbar,#umcpassportplugin .caibar,#umcpassportplugin .txbar,#umcpassportplugin .notebar,#umcpassportplugin .weibar,#umcpassportplugin .g3 {
+	width: 34px;
+	height: 34px;
+	background: url(../../images/global/chinamobileapps.png) no-repeat;
+	display: inline-block
+}
+#umcpassportplugin .feibar {
+	background-position: -1px -1px
+}
+#umcpassportplugin .mailbar {
+	background-position: -40px -1px
+}
+#umcpassportplugin .caibar {
+	background-position: -80px -1px
+}
+#umcpassportplugin .txbar {
+	background-position: -121px -1px
+}
+#umcpassportplugin .weibar {
+	background-position: -162px -1px
+}
+#umcpassportplugin .notebar {
+	background-position: -1px -41px
+}
+#umcpassportplugin .g3 {
+	background-position: -40px -41px
+}
+#umcpassportplugin .openMoreUp,#umcpassportplugin .openMoreDown {
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	background: url(../../images/global/chinamobileapps.png) no-repeat
+}
+#umcpassportplugin .openMoreUp {
+	background-position: -200px 0
+}
+#umcpassportplugin .openMoreDown {
+	background-position: -200px -16px
+}
+#umcpassportplugin a.openMoreUp: hover {
+	background-position: -218px 0
+}
+#umcpassportplugin a.openMoreDown: hover {
+	background-position: -218px -16px
+}
+#umcpassportplugin .feibarDiv {
+	margin: 10px 10px 0;
+	position: relative
+}
+#umcpassportplugin .feibarDiv a {
+	float: left;
+	text-align: center;
+	color: #888
+}
+#umcpassportplugin .feibarDiv a: hover {
+	text-decoration: none
+}
+#umcpassportplugin .feibarDiv a em {
+	display: block;
+	margin-top: 2px
+}
+#umcpassportplugin .feibarDiv .resume {
+	margin-top: 10px;
+	clear: both;
+	overflow: hidden;
+	zoom: 1
+}
+#umcpassportplugin .feibarDiv .resume.hide {
+	display: none
+}
+#umcpassportplugin .infoName {
+	position: absolute;
+	background-color: #FFF;
+	border: 1px solid #5417b0;
+	width: auto;
+	*width: 250px;
+	padding: 5px 0;
+	overflow: hidden
+}
+#umcpassportplugin .infoName a {
+	color: #5417b0
+}
+#umcpassportplugin .infoName a.txr {
+	color: #5417b0
+}
+#umcpassportplugin .infoName .feibarDiv a {
+	color: #888
+}
+#umcpassportplugin .infoName .tipName em {
+	color: #f18e01
+}
+#umcpassportplugin .mailNormal {
+	background-color: #FFF;
+	border: 1px solid #cecece;
+	border-top:none;
+	width: auto;
+	*width: 250px;
+	padding: 5px 0 10px;
+	overflow: hidden;
+	-moz-box-shadow:0 0 1px #cecece;
+    -webkit-box-shadow:0 0 1px #cecece;
+    box-shadow:0 0 1px #cecece;
+}
+#umcpassportplugin .cloudMail {
+	position: absolute;
+	background-color: #FFF;
+	border: 1px solid #03aae6;
+	width: auto;
+	*width: 250px;
+	padding: 5px 0;
+	overflow: hidden
+}
+#umcpassportplugin .cloudMail a {
+	color: #03aae6
+}
+#umcpassportplugin .cloudMail a.txr {
+	color: #03aae6
+}
+#umcpassportplugin .cloudMail .feibarDiv a {
+	color: #888
+}
+#umcpassportplugin .microBlog {
+	position: absolute;
+	background-color: #FFF;
+	border: 1px solid #2a2a2a;
+	width: auto;
+	*width: 250px;
+	padding: 5px 0;
+	overflow: hidden
+}
+#umcpassportplugin .microBlog a {
+	color: #2a2a2a
+}
+#umcpassportplugin .microBlog a.txr {
+	color: #2a2a2a
+}
+#umcpassportplugin .microBlog .feibarDiv a {
+	color: #888
+}

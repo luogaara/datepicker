@@ -1,0 +1,63 @@
+/*自助查询*/
+.pageSetIndexV2 {width: 750px;padding: 20px 0 0 20px;}
+.fcI {font-size: 14px;border-bottom: 2px solid #dfdfe2; padding: 0 0 3px 10px; margin-bottom: 15px; }
+.loginSearchBar {width: 871px;margin-bottom: 25px; }
+.loginSearchBar h3 {line-height: 30px;}
+.loginSearchTab {overflow: hidden;_zoom: 1;border: 1px solid #9A9999; border-left:none;}
+.loginSearchTab li {float: left;height: 27px;line-height: 27px;width: 174px; }
+.loginSearchTab li a { display: block;text-align: center;background: url(../../images/module/selfsearch/l-find_03.png) -174px -1px no-repeat;color: #666;text-decoration: none;}
+.loginSearchTab li a.current {background-position: 0 -1px;color: #333;}
+.loginSearchMes_info {line-height: 40px;height: 40px;}
+.loginSearchMes_info a {text-decoration: none;}
+.loginSearchMes_info a:hover {text-decoration: underline;}
+.loginSearchMes_info-btn a.current {
+    background: -webkit-gradient(linear, left top, left bottom, from(#E7E9EC), to(#C1C0C0));
+    background: -moz-linear-gradient(top, #E7E9EC, #C1C0C0);
+    background: -o-linear-gradient(left, #E7E9EC, # #C1C0C0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#E7E9EC', endColorstr = '#C1C0C0');
+    background: linear-gradient(left, #E7E9EC, #C1C0C0);
+}
+.loginSearchMes_info-btn { padding: 9px 0px 8px 0px;}
+.loginSearchMes_info-btn a {color: #000;
+    border: 1px solid #8E8F8F;
+    border-bottom-color: #6A6B6B;
+    display: inline-block;
+    line-height: 21px;
+    height: 21px;
+    padding: 0 10px;
+    text-decoration: none;
+    overflow: hidden;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#DBDBDB));
+    background: -moz-linear-gradient(top, #ffffff, #DBDBDB);
+    background: -o-linear-gradient(left, #ffffff, #DBDBDB);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#DBDBDB');
+    background: linear-gradient(left, #ffffff, #DBDBDB);
+}
+.loginSearchMes_info-btn a:hover {text-decoration: none;}
+.loginSearchTitle li a {color: #000; text-decoration: none;}
+.pageSetIndexV2 .loginSearchTable { width: 872px;}
+.pageSetIndexV2 .loginSearchTable th {
+    border: 1px solid #CCC;
+    height: 25px;
+    vertical-align: middle;
+    font-weight: normal;
+    background: url(../../images/module/selfsearch/s-line_03.png) left top repeat-x;
+    text-align: left;
+    padding-left: 10px;
+}
+.pageSetIndexV2 .loginSearchTable th.none { background: none;height: 10px;border: 0;font-size: 0;  }
+.loginSearchTable th{ vertical-align: middle; }
+.loginSearchTable th{border-bottom: 2px solid #E7E7E7;}
+.loginSearchTable th {height: 28px;   border-bottom: 2px solid #D4D4D4; font-weight: bold;}
+.loindatetable { width: 698px; margin-top: 10px;}
+.pageSetIndexV2 .loindatetable th {font-weight: 700;text-align: left; padding-left: 10px;height: 28px;font-size: 14px;border-bottom: 1px solid #E7E7E7;}
+.loindatetable td {height: 26px;border-bottom: 1px solid #E7E7E7;word-break: break-all;padding-left: 10px;}
+.loindatetable td .nohh {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width: 300px;}
+.userdouble-date{padding-left:12px;}
+.userdouble-date .userdouble{margin-top:10px;width:850px;height:18px;}
+.userdouble-date .userdouble .time{float:left;margin-right:45px;}
+.userdouble-date .userdouble .datewarp{float:left;height:14px;margin-top:2px;margin-right:10px; background:#00b615;}
+.userdouble-date .userdouble .datenum{color:#00b615;}
+.userdoublenodate-text{margin-top:10px; padding-left:11px;padding-bottom:3px; border-bottom:1px #e7e7e7 solid;}
+
+/***/

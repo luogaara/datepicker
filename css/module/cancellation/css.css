@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+/*reset*/
+.m_clearfix:before,.m_clearfix:after {
+  content:"";
+  display:table;
+}
+.m_clearfix:after {
+  clear:both;
+  overflow:hidden;
+}
+.m_clearfix {
+  zoom:1; /* IE < 8 */
+}
+
+.clear {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+
+.ml148{ margin-left:148px;}
+.fl{ float:left;}
+.fr{ float:right;}
+
+body{background:url(../../../images/module/cancellation/bg.png) repeat-x bottom #4289f4;}
+.wrapper{ width:985px; margin:0 auto;}
+#main{}
+.upmargin{ margin:-80px auto 0 auto;_margin:0px auto 0 auto; position:relative; z-index:2;}
+#uptop{ position:relative; top:-80px;}
+
+/*header*/
+#header{ background:url(../../../images/module/cancellation/head_bg.jpg) repeat-x; height:43px;}
+#logo{ background:url(../../../images/module/cancellation/logo.jpg) no-repeat; float:left;}
+#logo a{ display:inline-block; width:182px; height:43px; overflow:hidden; line-height:200px;}
+.top_right{ float:right; height:43px; line-height:43px; color:#FFF;}
+.top_right a{color:#FFF; text-decoration:none;}
+.top_right a:hover{ text-decoration:underline;}
+
+/*banner*/
+.banner{ background:url(../../../images/module/cancellation/banner.png) no-repeat center top; height:332px;}
+.banner span{ display:none;}
+
+/*mailinfo*/
+.mailinfo{ position:relative; z-index:4;}
+.mailinfo_top{ border-bottom:2px solid #1c5fbc;}
+.tabletop_ul li{ float:left;}
+.tabletop_ul li.first{ background:url(../../../images/module/cancellation/current_use.jpg) no-repeat; width:192px; height:58px; border-right:1px solid #325b95; position:relative;}
+.til_com{ background:url(../../../images/module/cancellation/tablehead_bg.png) repeat-x; height:58px; line-height:58px; width:263px; text-align:center; font-family:'微软雅黑'; font-size:20px;}
+.double_border{ border-right:1px solid #d2d2d2; box-shadow:inset -1px 0 0 #FFF;}
+
+/*version_mail*/
+.version_mail,.version_mail span,.version_mail span span{ background-image:url(../../../images/module/cancellation/btn.png); display:inline-block; height:23px; line-height:23px;cursor:pointer;}
+.version_mail{ padding-right:3px;background-repeat:no-repeat;text-decoration:none; background-position:right -48px; position:absolute; top:30px; left:45px;}
+.version_mail span{ padding-left:3px;background-repeat:no-repeat; background-position:0 0;}
+.version_mail span span{background-repeat:repeat-x; background-position:0 -24px; padding:0 20px; color:#4c2600; text-shadow:1px 1px 0 #fff0c8; }
+
+/*mailinfo_body*/
+.mailinfo_body{ position:relative;}
+.frame_ul li{ float:left;}
+.item_til{ width:192px; background:#f6f6f6; border-right:1px solid #e8e8e8; box-shadow:inset -1px 0 0 #f1f1f1;}
+.item_til p{ margin:0 17px; border-bottom:1px solid #dfdfdf; height:51px; line-height:51px; text-align:center;font-family:'微软雅黑'; font-size:16px;}
+.item_con{ width:263px; background:#fff; border-right:1px solid #f0f0f0; box-shadow:inset -1px 0 0 #fafafa; }
+.item_con p{position:relative; margin: 0 20px; border-bottom:1px solid #e3e3e3; height:51px; line-height:51px; text-align:center;font-family:'微软雅黑'; font-size:16px;}
+
+/*mailinfo_btm*/
+.mailinfo_btm{ background:url(../../../images/module/cancellation/mailinfo_btm.png) no-repeat; height:54px;text-align:center; padding-top:10px;}
+.buy5,.buy20{ display:inline-block; width:207px; height:49px; overflow:hidden; line-height:200px; background-image:url(../../../images/module/cancellation/ico.png); background-repeat:no-repeat; vertical-align:top;}
+
+.buy5{background-position:0 -50px;}
+.buy20{background-position:0 0;}
+.buy5:hover{background-position:0 -150px;}
+.buy20:hover{background-position:0 -100px;}
+
+/*upgrade_btn*/
+.upgrade_btn{ display:inline-block; width:58px; height:24px; line-height:200px; background-image:url(../../../images/module/cancellation/ico.png); background-repeat:none; overflow:hidden;position:absolute; top:14px; right:5px;}
+.times1{ background-position:-224px -1px;}
+.times2{ background-position:-293px -1px;}
+.times3{ background-position:-224px -26px;}
+.times4{ background-position:-293px -26px;}
+.times5{ background-position:-224px -51px;}
+.times6{ background-position:-293px -51px;}
+.times7{ background-position:-224px -76px;}
+.times8{ background-position:-293px -76px;}
+.times9{ background-position:-224px -101px;}
+.times10{ background-position:-293px -101px;}
+.timesn{ background-position:-224px -126px;}
+.times_special{ background-position:-293px -126px;}
+
+/*white_box*/
+.white_box{ padding: 0 64px 48px 62px; background:url(../../../images/module/cancellation/notebg.png) no-repeat; 
+}
+.white_box h2{ height:53px; line-height:53px; padding-left:30px; border-bottom:1px solid #e0e0e0; box-shadow: 0 1px 0 #fdfdfd; font-size:16px; font-weight:bold;}
+.white_box_body{}
+.white_top{ background:url(../../../images/module/cancellation/note_head.png) no-repeat center top;}
+
+/*holder*/
+.holder{ width:260px;}
+.holder_r{ overflow:hidden; zoom:1; padding-left:18px;}
+.holder_r h3{ font-weight:normal; font-size:12px; padding-bottom:6px;}
+.holder_r p{ color:#999; line-height:20px;}
+.white_box_ul li{ width:326px; height:90px; float:left; padding:20px 0 0 48px;}
+
+/*footer*/
+#footer{ height:65px; line-height:65px; border-top:2px solid #FFF; background:#f7f7f7; margin-top:-50px;}
+#footer p,#footer p a{ color:#7f7f7f;}
+#footer p a{ padding:0 5px; text-decoration:none;}
+.footer_ico{ background:url(../../../images/module/cancellation/foot_ico.png) no-repeat left center; padding-left:25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

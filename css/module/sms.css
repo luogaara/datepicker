@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/*smsWrap*/
+.smsWrap{width: 100%; float: left;}
+.smsBody{margin-left: 199px;}
+
+.smsSub{top:0;}
+
+/*发短信页面新增*/
+.smsTable .eidt-body{ padding-top:0;}
+.smsTable .select-type{_margin-top:-3px;}
+.smsTable .borderBtDash td,.smsTable .borderBtDash th{ border-bottom: #dddcdc dashed 1px;}
+.smsTable .smsRules li{margin-bottom: 4px;}
+
+.tabContent .smsCat{height:36px;}
+.dropdown-letter{width:88px;margin:0 10px 10px 10px ;}
+
+.tabContent .sysSmsList{overflow-y:auto;border-top: 1px solid #E8E8E8;}
+.tabContent .sysSmsList li{ padding: 0 12px;}
+.tabContent .sysSmsList p{ padding: 9px 0; border-bottom:#dddcdc dashed 1px; }
+.tabContent .contactListNew{background-color: #F8F8F8;}
+.tabContent .contactListNew .inner{ display:inline-block;}
+
+.tableTitle td.td3,.dayArea .dayAreaTable .td3{width:148px;}
+.dayArea .dayAreaTable .td3{ padding-left:6px;}
+.tableTitle td.td4,.dayArea .dayAreaTable .td4{width:128px; }
+
+.toolBarUl .sendTime{line-height: 28px;}
+
+.form .formLine .leftSide{ float:none; margin-left:70px;}
+.subSearch{ width:147px; padding:2px 22px 2px 11px; position:relative; top:-1px; background-color:#f8f8f8; border:#ececec solid 1px; position: relative;*zoom:1;
+border-radius:24px;
+-webkit-border-radius:24px;
+}
+.subSearch .sub_ipt{width: 22px; background: none; border: none; position: absolute; top:0; right:0; padding:2px 5px 5px 3px; display: none;}
+
+.subSearch .txt_ipt{width:100%; border:none; background: none; line-height: 16px; height:16px; color:#a8a8a8;}
+.subSearchOn{background-color: #fff;}
+.subSearchOn .txt_ipt{color:#666;}
+.subSearchOn .sub_ipt{display: block;}
+
+.subSearch .mailSearchboolBar{border:#cecece solid 1px;}
+.dayAreaTable em{color:#ff5907;}
+.bodyerror{width: 260px;}
+.tableTitle td.tdtitle a{padding-left: 20px;}
+
+.dayArea .dayAreaTable .trBlue td,.dayArea .dayAreaTable .trBlue:hover td{ background: #eaf0fe;}
+.dayArea .dayAreaTable .trRed td,.dayArea .dayAreaTable .trRed:hover td{ background: #fef4f9;}
+.smsTips{position: absolute; bottom: 0; left:0;}
+.blackLnk{color:#666;}
+.createList_lnk{height:16px; line-height: 16px;}
+.createList_lnk:hover, .createList_lnk.on {background-color: #E8E8E8;text-decoration: none;}
+.createList_lnk{display: block;padding: 4px 4px 4px 16px;overflow: hidden;}
+.i_s_smsSet,.i_s_smsSend,.i_s_smsOrder,.i_s_smsLog,.i_s_smsCollect,.i_s_smsLover{vertical-align: top;}
+
+.subList .big li a.smsDropLnk{padding-left: 47px;}
+.smsSub .subList a .t_blackDown{left:29px;}
+.smsSub .subList .small li a {padding-left: 46px;}
+.smsSub .subList .big li .fz_14{font-size: 14px;}
+.menuPop li a.blue{color:#1a75ca;}

@@ -1,0 +1,46 @@
+/* 附件图标 */
+.i_file,.i_file_16{width:32px;height:32px;background:url(../../images/global/fileico.png) no-repeat;display:inline-block;overflow:hidden;vertical-align:middle;}
+.i_file_16{width:16px;height:16px;}
+.i_f_xls,.i_f_xlsx{background-position:-68px -34px;}
+.i_f_pdf{background-position:-34px 0;}
+.i_f_doc,.i_f_docx{background-position:-68px 0;}
+.i_f_ppt,.i_f_pptx{background-position:-102px 0;}
+.i_f_fla,.i_f_swf{background-position:-136px 0;}
+.i_f_mp3,.i_f_wav{background-position:-170px 0;}
+.i_f_iso{background-position:-204px 0;}
+.i_f_avi,.i_f_rmvb,.i_f_wmv,.i_f_flv{background-position:-238px 0;}
+.i_f_fon,.i_f_ttc,.i_f_ttf{background-position:-272px 0;}
+.i_f_bt{background-position:-306px 0;}
+.i_f_txt{background-position:-340px 0;}
+.i_f_html,.i_f_htm{background-position:-374px 0;}
+.i_f_dvd{background-position:-408px 0;}
+.i_f_rar,.i_f_zip,.i_f_7z{background-position:-442px 0;}
+.i_f_exe,.i_f_apk,.i_f_ipa{background-position:0 -34px;}
+.i_f_jpg,.i_f_jpeg,.i_f_jpe,.i_f_gif,.i_f_giff,.i_f_png,.i_f_bmp,.i_f_tif,.i_f_tiff{background-position:-34px -34px;}
+.i_f_139{background-position:0 0;}
+/* {background-position:-102px -34px;}
+{background-position:-136px -34px;}
+{background-position:-170px -34px;}
+{background-position:-204px -34px;} */
+
+ .i_m_xls, .i_m_xlsx{background-position:-288px -68px;}
+ .i_m_pdf{background-position:-18px -68px;}
+ .i_m_doc, .i_m_docx{background-position:-36px -68px;}
+ .i_m_ppt, .i_m_pptx{background-position:-54px -68px;}
+ .i_m_fla, .i_m_swf{background-position:-72px -68px;}
+ .i_m_mp3, .i_m_wav{background-position:-90px -68px;}
+ .i_m_iso{background-position:-108px -68px;}
+ .i_m_avi, .i_m_rmvb, .i_m_wmv,.i_m_mlv{background-position:-126px -68px;}
+ .i_m_fon, .i_m_ttc, .i_m_ttf{background-position:-144px -68px;}
+ .i_m_bt{background-position:-162px -68px;}
+ .i_m_txt{background-position:-180px -68px;}
+ .i_m_html, .i_m_htm{background-position:-198px -68px;}
+ .i_m_dvd{background-position:-216px -68px;}
+ .i_m_rar, .i_m_zip, .i_m_7z{background-position:-234px -68px;}
+ .i_m_exe, .i_m_apk, .i_m_ipa{background-position:-252px -68px;}
+ .i_m_jpg, .i_m_jpeg, .i_m_ico, .i_m_jfif, .i_m_jpe, .i_m_gif, .i_m_giff, .i_m_png, .i_m_bmp, .i_m_tif, .i_m_tiff{background-position:-270px -68px;}
+ .i_m_139{background-position:0 -68px;	}
+/* {background-position:-306px -68px;}
+{background-position:-324px -68px;}
+{background-position:-342px -68px;}
+{background-position:-360px -68px;} */

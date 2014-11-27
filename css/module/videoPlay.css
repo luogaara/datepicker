@@ -1,0 +1,74 @@
+@charset "utf-8";
+/*视频播放 created by chengminqing@richinfo.cn*/
+body{ background: #ececec; }
+body.lightOff{background: #333;}
+body.fullScreen{height: 100%;}
+body.lightOff .videoTitle,body.lightOff .videoDownSend{visibility: hidden;}
+.g_videoWrap{}
+.g_videoWrap{ padding: 43px 0; width: 720px; margin: auto;}
+.g_videoWrap .hd{ position: relative; *zoom:1;}
+.videoTitle{ font-size: 20px; color: #333; line-height: 44px; margin-right: 120px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis; font-weight: 300;}
+.videoDownSend{ position: absolute; top:12px; right: 0;}
+/*
+.videoDownSend a{ line-height: 26px; padding: 0 10px; background: #f8f8f8; border:#ccc solid 1px; display: inline-block; color: #636363;}
+.videoDownSend a:hover{color: #636363; background: #ececec;}
+*/
+.g_videoWrap .bd{ height: 405px; background: #232323; position: relative;*zoom:1;}
+.png24lib{ background: url(../../images/module/networkDisk/videoPlay.lib.png) no-repeat 0 0;}
+.bd{}
+.bd .playBtn{ position: absolute; top: 50%; left:50%; width: 68px; height: 68px;  background-position: -232px -86px; margin: -34px 0 0 -34px; z-index: 10;}
+.bd .playBtn:hover{ background-position: -232px -5px;}
+.ft{background:#232323;}
+.ft .videoProgressBar,.ft .videoProgress1,.ft .videoProgress2{ height: 3px; background:#3c3c3c; position: relative;*zoom:1; font-size: 0px; cursor: pointer;}
+.ft .videoProgress1{background:#f9a327; position: absolute; top: 0; left:0; z-index: 10;}
+.ft .videoProgress2{background:#888;position: absolute; top: 0; left:0;z-index: 5;}
+
+.ft .videoProgress1 .dot{ background-position:-125px -1px; display: block; position: absolute; right:-9px; top:-7px; width: 17px; height: 17px; }
+.ft .videoProgress1 .dot:hover{background-position:-155px -1px;}
+
+.play-pause{ border-right: #393939 solid 1px;}
+.play-pause .playing{ background-position: 11px -62px; width: 52px; height: 40px; display: block;}
+.play-pause .playing:hover{background-position: 11px -102px;}
+
+.play-pause .paused{ background-position:-56px -62px;}
+.play-pause .paused:hover{background-position:-56px -102px;}
+
+.time{ border-left: #111 solid 1px; padding-left: 10px; line-height: 40px; height:40px; color:#6e6e6e;font-size: 12px;   
+  -moz-user-select: none; /*火狐*/
+   -webkit-user-select: none;  /*webkit浏览器*/
+   -ms-user-select: none;   /*IE10*/
+   -khtml-user-select: none; /*早期浏览器*/
+   user-select: none;}
+.time .played{color:#9b9b9b;}
+.volBar{ background: #4d4d4d; height: 4px; font-size: 0; width: 74px; position: relative;*zoom:1; margin-right: 16px; top:16px;}
+.volBar .videoVol{ position: absolute; top:0; left: 0;height: 4px; font-size: 0;background: #888; }
+
+.volBar .videoVol .dot{ background-position:-2px -161px ; width: 21px; height: 23px; position: absolute; right:-10px; top:-9px;}
+.volBar .videoVol .dot:hover{background-position:-2px -197px ; }
+
+.volBar .videoVol .mute{ background-position:-2px -234px ; width: 21px; height: 23px; position: absolute; right:-10px; top:-9px;}
+.volBar .videoVol .mute:hover{background-position:-2px -271px ; }
+
+.lightBar{ margin-right: 12px; position: relative; top:5px;}
+.lightBar .lightOnBtn{ width: 20px; height: 26px; display: block; background-position: -78px -159px;}
+.lightBar .lightOnBtn:hover{background-position: -78px -195px;}
+.lightBar .lightOffBtn{background-position: -115px -159px;}
+.lightBar .lightOffBtn:hover{background-position: -115px -195px;}
+.fullScreenBar {margin-right: 10px; position: relative; top:5px;}
+.fullScreenBar .fullScreenBtn{width: 26px; height: 26px; display: block;background-position: -167px -158px;}
+.fullScreenBar .fullScreenBtn:hover{background-position: -167px -194px;}
+.fullScreenBar .normalScreenBtn{background-position: -216px -158px;}
+.fullScreenBar .normalScreenBtn:hover{background-position: -216px -194px;}
+
+.fullScreen .g_videoWrap{ padding: 0; width: 100%; position:  absolute; top:0; left: 0; right: 0; height: 100%;}
+.fullScreen .g_videoWrap .hd{display: none;}
+.fullScreen .g_videoWrap .bd{ height: 100%;}
+.fullScreen .g_videoWrap .ft{position: absolute;bottom: 0; left: 0; right: 0;background:rgba(0, 0, 0, 0.5); _filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#77000000,endColorStr=#77000000);z-index: 20;}
+
+.fullScreen .g_videoWrap .lightBar{display: none;}
+
+.loading{ width: 32px; height: 32px; background: url(../../images/module/networkDisk/loading.gif) no-repeat 0 0; z-index: 5; position: absolute;top:50%; left: 50%; margin:-16px 0 0 -16px; }
+.error{ position: absolute;top:0; left: 0; right: 0; width: 100%; height: 100%; background: #000; z-index: 15;}
+.error .text{position: absolute;top:0; left: 0; right: 0; width: 100%; top:50%; text-align: center; color: #888; background: url(../../images/module/networkDisk/videoPlay.error.png) no-repeat center 0; padding-top:81px; line-height: 24px; font-size: 14px;  margin-top: -52px; }
+.error .text a{color:#38c4ff;}
+.error .text a:hover{color:#1A75CA;}

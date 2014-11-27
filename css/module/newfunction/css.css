@@ -1,0 +1,55 @@
+html,body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,select,textarea,button,th,td,blockquote,address,var,pre{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,input,textarea,select,button,label{font-size:100%;}
+button,select,textarea,input{vertical-align:middle;color:#333;}
+input[type=button],input[type=submit],input[type=reset],input[type=file],button{cursor:pointer;overflow:visible;width:auto}
+button{padding:3px 5px 2px;}
+textarea{resize:vertical;}  /* word-wrap for opera, resize for webkit */
+a{color:#014282;text-decoration:none;}
+a:hover{text-decoration:underline;}
+ul,ol{list-style:none outside none;}
+img,fieldset{border:none;}
+img{overflow:hidden;vertical-align:top;}
+em,address,var{font-style:normal;}
+sup,sub{vertical-align:baseline;}
+table{border-collapse:collapse;border-spacing:0;}
+i{display:inline-block;} /*用于修饰性小图标*/
+.show{display:block!important;}
+.hide{display:none!important;}
+
+.new-action-div{position: relative;}
+.new-action-div,.new-action-li,.new-action{width: 720px;height: 370px;overflow: hidden;}
+.new-action-li{position: absolute;left:0;top: 0;}
+.new-action{float: left;width: 720px;height: 370px;}
+.new-action .close{width: 13px;height: 13px;overflow:hidden;position: absolute;top: 8px;right: 9px;}
+.bottom{position: absolute;bottom: 0;left: 0;background-color:rgba(0,0,0,0.35);width: 720px;height: 65px;
+filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#59000000', endColorstr='#59000000');}
+.sjx{width: 17px;height: 9px;background:url(../../../images/module/newfunction/hsj.png) no-repeat;overflow:hidden; bottom: 65px;position: absolute;
+_background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../../images/module/newfunction/hsj.png" ,sizingMethod="noscale");/*IE6透明*/
+}
+:root bottom  {
+	filter:none;	 /*处理IE9浏览器中的滤镜效果*/
+	background-color:rgba(0,0,0,0.35);
+}
+
+.new-a-tab{margin-top: 11px;height: 74px;position: absolute;bottom: 0;left:0;width: 720px;}
+.new-a-tab li{width: 130px;height: 65px; float: left;margin-left:12px;_display: inline;zoom:1;}
+.new-a-tab li a{width: 130px;height: 45px;text-align: center;line-height: 45px;display: block;font-size: 0;padding-top: 20px;}
+.new-a-tab li a:hover{cursor: pointer;text-decoration: none;outline:none;
+background:url(../../../images/module/newfunction/abg.png) no-repeat;_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../../images/module/newfunction/abg.png" ,sizingMethod="noscale");}
+.new-a-tab li.on a{cursor: pointer;text-decoration: none;outline:none;
+background:url(../../../images/module/newfunction/abg2.png) no-repeat;_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../../images/module/newfunction/abg2.png" ,sizingMethod="noscale");}
+.new-a-tab li a .aico{width: 30px;height: 30px;overflow: hidden;display: inline-block;vertical-align: middle;margin-right: 9px;}
+.new-a-tab li a span{display: inline-block;vertical-align: middle;line-height: 45px;height: 45px;color: #FFF;font-size: 14px;font-weight: 700;text-decoration: none;}
+.new-a-tab li a:hover span{text-decoration: none;}
+
+
+.newli5 .new-a-tab li{margin-left: 12px;}
+.newli5 .sjx{left:69px;}
+
+.newli4 .new-a-tab li{margin-left: 40px;}
+.newli4 .sjx{left:97px;}
+
+.newli3 .new-a-tab li{margin-left: 82px;}
+.newli3 .sjx{left:139px;}

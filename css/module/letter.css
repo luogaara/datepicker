@@ -1,0 +1,18 @@
+@charset "utf-8";
+/*信纸*/
+.letterPage{width:191px;}
+.dropdown-letter{width:169px;margin:0 10px 10px 10px ;}
+.dropdown-letter .dropDownText{_width:137px;}
+.letterList{border-top:1px solid #efefef;text-align:center;height:329px;overflow-x:hidden;overflow-y:auto;position:relative;}
+.letterList a{border:1px solid #dce0e1;padding:4px;display:block;margin:6px;float:left;_display:inline;position:relative;}
+.letterList a:hover{border-color:#ffc875;}
+.letterList a.on{border:2px solid #ffc875;padding:3px;}
+.letterList .letterListdiv{width:176px;margin:0 auto;}
+.letterList .vip5{background: url(../../images/module/letter/vip5.png) no-repeat 0 0;width: 37px;height: 37px;overflow:hidden;position: absolute;left:0;top:0;}
+.letterList .vip20{background: url(../../images/module/letter/vip20.png) no-repeat 0 0;width: 37px;height: 37px;overflow:hidden;position: absolute;left:0;top:0;}
+.letterPaginationBox{height:20px;padding:5px 0;float:left;width:100%;position:relative;}
+.letterPaginationBox_link{line-height:20px;left: 50%;float:left;margin: 0 auto;position: relative;}
+.letterPaginationBox_link a{position: relative;right: 50%;float:left;}
+.letterPaginationBox_link .pagenum{top:0;top:-3px\9;zoom:1;}
+.letterPaginationBox_link .noPagenum,.noPagenum span{cursor:default;color:#999;}
+.letterPaginationBox_link .noPagenum:hover,.noPagenum:hover span{text-decoration:none;}

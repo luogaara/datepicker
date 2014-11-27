@@ -1,0 +1,79 @@
+@charset "utf-8";
+body.bodycolor,body.newwindowsread{background-color:#bbe6fe}
+.newwindowsread{padding:4px}
+.newredcontent{border:1px solid;background-color:#fff}
+.readWrite{background:url(../../images/skin_old/sky/bg.png) no-repeat;background-position:-1px -1px;margin-bottom:4px}
+.readWrite a{font-weight:bold;color:#778fa9}
+.readWrite a:hover{color:#00346f;text-decoration:none}
+.mainIframeBg{border:1px solid;border-top:none}
+.sub{border-color:#bbe6fe}
+.mainIframeBg,.subList,.mainTop,.readWrite,.logoinfo .infoSelon .infoA,.logoinfo .infoName,.selectOn .selected,.selectOn .selectBody,.newredcontent,.tab-menu{border-color:#bcd3e9}
+.dRound,.adminMyApp .adminMyAppList li.current,.singleApp .rightDiv{border-color:#c7d6e4}
+.logo .info .linespan,.setInfoText .linespan,.logoinfo .linespan{color:#4b7296}
+.logoinfo .infoSel a,.setInfoText a{color:#24568f}
+.subList{background-color:#f9fcff}
+.subList .big li a:hover,.subList .big li a.on,.subDiv a:hover,.dRound,.adminMyApp .adminMyAppList li.current,.singleApp .rightDiv{background-color:#d7eeff}
+.skintopBg,.skinBottomBg,.tab-lc,.tab-rc,.mainTop .closeAll,.mainTop .i_close,.s-s-btn,.i_t_close,.i_t_min,.i_write,.i_read,.i_comm,.i_funtion,.i_add,.i_minus2,.i_plus,.i_set,.i_iphone,.i_sj,.mailLogo,.newwlogo,.i_xiax,.i_xias,.i_sendSms,.i_netDisk,.i-index-sbtn{background:url(../../images/skin_old/sky/bg.png) no-repeat}
+.skintopBg,.skinBottomBg{width:200px;height:7px;display:none}
+.skintopBg{background-position:-203px 0}
+.skinBottomBg{background-position:-203px -8px}
+.mailLogo{width:114px;height:30px;background-position:-386px -46px}
+.searchWrap,.searchBtn{border-color:#a7c2d9}
+.i-index-sbtn{background-position:-280px -17px}
+.searchWrap .i-index-sbtn:hover,.searchWrap .i-index-sbtn.on{background-position:-319px -17px}
+.topBg,.mainTop li{}
+.mainTop li{color:#666;background-color:#eaf4fc;border:1px solid #bcd3e9}
+.mainTop .on{background-color:#00346f;color:#fff;border-color:#00325f}
+.mainTop .i_close{width:9px;height:9px;background-position:-410px -11px}
+.mainTop .i_close:hover{background-position:-421px -11px}
+.mainTop .on .i_close{background-position:-410px 0}
+.mainTop .on .i_close:hover{background-position:-421px 0}
+.mainTop .closeAll{background-position:-229px -17px;border-color:#bcd3e9}
+.mainTop .closeAll:hover{background-position:-253px -17px;border-color:#3c4d00}
+.skinTop{background-color:#6fbceb;height:150px;width:100%;position:absolute;left:0;top:0;z-index:1}
+.skinTopLeft{background:url(../../images/skin_old/sky/leftbg.jpg) no-repeat;width:355px;height:150px;position:absolute;left:0;top:0;z-index:2}
+.skinTopRight{background:url(../../images/skin_old/sky/rightbg.jpg) no-repeat;width:555px;height:150px;position:absolute;right:0;top:0;z-index:3}
+.boxIframeTitle{border:1px solid #00346f;border-bottom:none;background-color:#00346f;color:#fff}
+.boxIframeTitle h2{border-color:#00346f}
+.boxIframeMain{border-color:#c7d6e4;border-top-color:#00325f;background-color:#fff}
+.boxIframeBtn,.skinul .skinPopBtn,.delmailTipsBtn{border-color:#c7d6e4;background-color:#eaf4fc}
+.delmailTips .tipsTop,.delmailTips .tipsBottom,.delmailTips.tipsLeft,.delmailTips .tipsRight{border-color:#8f9b63}
+.i_t_close{background-position:-461px 0}
+.i_t_close:hover{background-position:-484px 0}
+.i_t_min{background-position:-461px -20px}
+.i_t_min:hover{background-position:-484px -20px}
+.i_write{width:19px;height:17px;background-position:0 -75px}
+/*.i_write:hover,.writeBtn:hover .i_write{background-position:-27px -76px}*/
+.i_read{width:17px;height:14px;background-position:0 -96px}
+/*.i_read:hover,.redBtn:hover .i_read{background-position:-27px -96px}*/
+.i_sendSms{width:18px;height:17px;background-position:-157px -96px}
+/*.commBtn:hover .i_sendSms{background-position:-173px -96px}*/
+.i_netDisk{width:16px;height:17px;background-position:-190px -96px}
+/*.commBtn:hover .i_netDisk{background-position:-205px -96px}*/
+.i_comm{width:14px;height:13px;background-position:-54px -96px}
+.i_comm:hover,.commBtn:hover .i_comm{background-position:-81px -96px}
+.i_funtion{width:17px;height:17px;background-position:-162px -76px}
+.i_add{width:18px;height:18px;background-position:4px -112px}
+.i_add:hover{background-position:-23px -112px}
+.i_plus{width:11px;height:11px;background-position:-54px -76px}
+.i_plus:hover{background-position:-81px -76px}
+.i_minus2{width:11px;height:11px;background-position:-108px -76px}
+.i_minus2:hover{background-position:-135px -76px}
+.i_set{width:18px;height:18px;background-position:-51px -113px}
+.i_set:hover,.setApp:hover i,.adminMyAppBtn:hover i{background-position:-78px -113px}
+.i_iphone{width:12px;height:12px;background-position:-108px -96px}
+.i_iphone:hover,.iphone-btn:hover i{background-position:-135px -96px}
+.i_sj{width:8px;height:4px;background-position:-108px -116px}
+.logoinfo .infoSelon .i_sj{background-position:-189px -116px}
+.i_sj:hover{background-position:-135px -116px}
+.i_xiax{width:7px;height:5px;overflow:hidden;background-position:0 -136px;vertical-align:middle}
+.i_xiax:hover{background-position:-27px -136px}
+.i_xias{width:7px;height:5px;overflow:hidden;background-position:-54px -136px;vertical-align:middle}
+.i_xias:hover{background-position:-81px -136px}
+.smilepopTab .tabTitle li{border-color:#00346f;background-color:#00346f}
+.smilepopTab .tabTitle li a span{border-color:#00346f}
+.smilepopTab .tabTitle li.on{border:1px solid #00346f;border-bottom:1px solid #fff}
+.smilepopTab .tabTitle{border-bottom-color:#c7d6e4}
+.delmailTips{border-color:#c7d6e4}
+.newwlogo{width:93px;height:26px;background-position:-407px -80px;display:block;overflow:hidden;margin-bottom:6px;margin-left:3px}
+.mainTop .on .error-loading{background:url(../../images/global/loading_xs.gif) no-repeat}

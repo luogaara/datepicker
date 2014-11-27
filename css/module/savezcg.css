@@ -1,0 +1,38 @@
+@import url(/m2012/css/module/attr.css);
+.savediskDrop{width:152px;float:left;margin:5px;}
+.savediskDrop .dropDownText{_width:120px;}
+.savefile-search{position:relative;width:200px;padding:5px;float:left;}
+.savefile-search .i_c-search{position:absolute;background-position:-475px -0px;left:130px;top:11px;width:14px;height:14px;}
+.savefile-search-on .i_c-search{display:inline-block;background-position:-400px -54px;}
+.savefile-search .iText{width:130px;}
+.savefile-search2{width:373px;}
+.savefile-search2 .iText{width:300px;}
+.savefile-search2 .i_c-search{left:300px;}
+.savefiletabtitle{width:100%;border-top:1px solid #a5a5a5;border-bottom:1px solid #cbcbcb;clear:both;}
+.savefiletabtitle td{height:28px;border-right:1px solid #e6e6e6;background-color:#f8f8f8;}
+.savefiletabtitle td a{display:block;line-height:28px;background-color:#f8f8f8;}
+.savefiletabtitle td a span{display:inline-block;line-height:28px;height:28px;vertical-align:middle;}
+.savefiletabtitle td a:hover{display:block;text-decoration:none;
+	 background:#f3f3f3;
+      background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f9f9f9));
+      background: -moz-linear-gradient(top,  #ffffff,  #f9f9f9);
+      background: -o-linear-gradient(top,  #ffffff,  #f9f9f9);
+      background: linear-gradient(left, #ffffff, #f9f9f9);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f9f9f9');
+} 
+.savefiletabtitle td a .i_th0,.tableTitle td a .i_th1{margin-left:5px;}
+.savefiletabtitle td.td1{width:35px;text-align:center;}
+.savefiletabtitle td.td2{padding-left:10px;width:178px;}
+.savefiletabtitle td.td3{width:65px;text-align:center;}
+.savefiletabtitle td.td4{width:92px;text-align:center;}
+.savefiletabtitle a{color:#333;}
+.savefiletabdiv{height:224px;overflow-y:auto;overflow-x:hidden;}
+.savefiletab{border-top:none;border-bottom:1px solid #cbcbcb;width:100%;}
+.savefiletab td{height:28px;border-top:1px solid #e6e6e6;background-color:#FFFFFF;}
+.savefiletab td.td1{width:35px;text-align:center;}
+.savefiletab td.td2{padding-left:10px;}
+.savefiletab td.td3{width:65px;text-align:center;}
+.savefiletab td.td4{text-align:center;width:92px;}
+.nosearchend{border-bottom:1px solid #a2b0c6;border-top:1px solid #a2b0c6;background-color:#ffffcb;padding:5px;position:relative;text-align:center;}
+.nosearchend p{text-align:left;}
+.nosearchend .i_u_close{position:absolute;right:5px;top:10px;}

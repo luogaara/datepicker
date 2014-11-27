@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* public hack 重构版 */
+.rssTitleBar{
+background:#F5F5F5;
+background: -webkit-gradient(linear, left 70%, left bottom, from(#ffffff), to(#ebebeb));
+background: -moz-linear-gradient(top,  #ffffff,  #ebebeb);
+background: -o-linear-gradient(left, #ffffff, #ebebeb);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ebebeb');
+background: linear-gradient(left, #ffffff, #ebebeb);
+-moz-box-shadow:1px 1px 5px rgba(0, 0, 0, 0);-webkit-box-shadow:1px 1px 5px rgba(0, 0, 0, 0);box-shadow:1px 1px 5px rgba(0, 0, 0, 0);
+border-color:#a5a5a5;
+border-bottom:1px solid #A5A5A5;
+height:34px;
+padding-top:7px;
+position:relative;
+}
+.rssTitleBar .rssTitleTab { position:absolute;top:1px;left:0}
+.rssTitleBar .rssTitleTab li{height:32px}
+.rssTitleBar .rssTitleTab li a {font-size:12px;color:#000;font-weight:400;}
+.rssTitleBar .rssTitleTab li.current {border-right: 1px solid #A5A5A5;border-left: 1px solid #A5A5A5;border-top: 1px solid #A5A5A5;}
+.rssTitleBar .rssTitleTab li.current a {font-size:12px;color:#666;font-weight:400;}
+.rssTitleBar .rssTitleRlink a {font-size:12px;color:#666;font-weight:400;}

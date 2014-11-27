@@ -1,0 +1,27 @@
+ /* 超大附件弹出层 */
+ @import url(/m2012/css/module/attr.css);
+.bigatta .topBtn{border-bottom:1px solid #e8e8e8;padding:12px 0 12px 14px;height:28px;}
+.bigatta .topBtn .btnNormal{height:26px;}
+.bigatta .topBtn .btnNormal span{height:26px; line-height:26px;}
+.attaList{height:364px;overflow-x:hidden;overflow-y:auto;position:relative;_height:229px;}
+.attaList .attaListLi:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.attaList .attaListLi{border-bottom:1px solid #e8e8e8;padding:10px 0;position:relative;zoom:1;height:37px;}
+.attaList .attaListLi .i_file, .attaList .attaListLi img{float:left;margin-left:14px;margin-top:4px;}
+.attaList .attaListLi .attaListLiText{float:left;margin-left:10px;}
+.attaList .attaListLi .attaListLiText2{float:right;margin-right:10px;text-align:right;_display:inline;}
+.attaList .attaListLi .attaListLiText2 span{color:#d7dbe2;}
+.attaList .attaListLi .progressBarDiv{width:240px;}
+.attaList .attaListLi .progressBar{_width:238px;}
+.attaList .attaListLi .progressBarCur{_width:238px;}
+
+ /* 超大附件弹出层 2.0*/
+.boxIframeText_buttom{width:425px; margin:0 auto; text-align:center; padding:97px 0;}
+.boxIframeText_buttom li{vertical-align:top;}
+.boxIframeText_buttom li p{line-height:24px; color:#999; margin-top:15px;}
+.boxIframeText_buttom .btnGreen{width:180px; height:28px; line-height:28px; _padding-top:5px; _height:25px;}
+.boxIframeText_buttom .btnGreen .i-uploadS, .boxIframeText_buttom .btnGreen .i_s_sarkw{margin-right:7px; margin-top:-2px; *margin-top:0;}
+.boxIframeText_buttom .btnGreen span{font-size:14px;}
+.boxIframeText_buttom .btnGreen:hover span{color:#fff;}
+.boxIframeText_buttom .btnTb{width:180px; padding-top:3px; height:27px; _padding-top:6px; _height:24px;}
+.boxIframeText_buttom .btnTb .i_s_sark{margin-right:7px; margin-top:-2px; *margin-top:0;}
+.boxIframeText_buttom_line{width:425px; height:1px; overflow:hidden; background-color:#f0f0f0; margin:52px 0;}
