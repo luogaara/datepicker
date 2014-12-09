@@ -1,5 +1,7 @@
 /**
- * 日期选择类（依赖于lunar.js）
+ * 日期选择类(依赖jquery)
+ * @Author: 张佳(jia58960)
+ * @Update: 2014/12/09
  * @param {Object} target 必选,需要绑定的元素对象,要求是jQuery对象
  * @param {Date} date 可选,初始化的时间
  * @param {String} dateFormat 可选,日期显示格式。如"yyyy-MM-dd"
@@ -7,7 +9,7 @@
  * @param {String} direction 可选,日历选择器的展示位置。默认展示在元素target下方并左对齐
  * 
  * @examples
- * new CalendarSelector({container:$("#demo"),date:'2014-11-12',dateFormat:'yyyy-MM-dd'});
+ * new CalendarSelector({container:$("#demo"),date:'2014-11-12',dateFormat:'yyyy-MM-dd',callback});
  * 
  */
 ;
@@ -78,8 +80,9 @@
                         return result;
                     });
                     return text;
-                },
+                }
             },
+
             Text: {
                 /**
                  * 格式化字符串，提供数组和object两种方式
@@ -127,8 +130,8 @@
          * 界面元素的模板
          */
         template: {
-            main: ['<div class="calendarSelector">',
-                        '<div class="tips calendarPlugin" id="datepickerDays" style="display: none;">',
+            main: ['<div id="calendarS_{cid}" class="calendarSelector" style="position:absolute; z-index:999">',
+                        '<div class="tips calendarPlugin" id="datepickerDays" style="display: block;">',
                             '<div class="calendarPlugin_top">',
                                 '<a href="javascript:void(0);" class="i-calendarLeft" id="prevMonth"></a>',
                                 '<a href="javascript:void(0);" class="calendarPlugin_time" id="dateDisplay">',
@@ -172,7 +175,7 @@
                                 '</tbody>',
                             '</table>',
                         '</div>',
-                        '<div class="tips calendarPlugin" id="datepickerYears" style="display: block;">',
+                        '<div class="tips calendarPlugin" id="datepickerYears" style="display: none;">',
                             '<div class="calendarPlugin_top">',
                                 '<a href="javascript:void(0);" class="i-calendarLeft" id="prevRangeYear"></a>',
                                 '<span class="calendarPlugin_timeS" id="yearRangeDisplay">','</span>',
@@ -228,10 +231,10 @@
             this.date = date || new Date();
             
             this.dateFormat = options.dateFormat || "yyyy-MM-dd";
-
-            this.direction = options.direction || "rightBottom";
-
-            this.pickerArea = $(this.template.main);
+            this.callback = options.callback || function () {};
+            this.direction = options.direction || "Auto";
+            this.cid = new Date().getTime();
+            this.pickerArea = $(Tools.Text.format(this.template.main, {cid: this.cid}));
             
             this.target.on('click', function(event) {
                 self.show();
@@ -270,15 +273,15 @@
             }),
 
             //选择某年
-            this.yearTdBtn.on('click', function(event) {
-                self.selectYear(event);
+            this.yearSelectorTbodyEl.on('click', 'td',function(event) {
+              self.selectYear($(event.currentTarget).attr("year"));
             });
             //选择某月
             this.monthTdBtn.on('click', function(event) {
                 self.selectMonth(event);
             });
             // 选择某天
-            this.dateSelectorTbodyEl.on('click', 'td.selectable',function(event) {
+            this.dateSelectorTbodyEl.on('click', 'td',function(event) {
               self.changeDate($(event.currentTarget).attr("date"));
             });
 
@@ -308,7 +311,7 @@
                     $(this).removeClass("onHoverDay");
                 }
               }
-            },'td.selectable div');
+            },'td div');
 
             this.yearSelectorTbodyEl.on({
                 mouseover: function() {
@@ -321,7 +324,7 @@
                     $(this).removeClass("onHoverDay");
                 }
               }
-            },'td.selectable div');
+            },'td div');
         },
 
         show: function(e) {
@@ -330,31 +333,34 @@
                 e.stopPropagation();
                 e.preventDefault();
             }
-            var calendarAreaEL = this.target.next('.calendarSelector');
-            if (calendarAreaEL.length == 0){ //还没渲染
+            var calendarAreaEL = $('#calendarS_' + this.cid);
+            if (calendarAreaEL.length == 0){//还没渲染
                 console.log('no render');
-                this.pickerArea.insertAfter(this.target); 
+                
+                this.pickerArea.appendTo('body');
                 this.keepElements();
-                this.hiddenInput.val(Tools.Date.formatToString(this.date,this.dateFormat));                    
+                this.hiddenInput.val(Tools.Date.formatToString(this.date,this.dateFormat));                
                 this.renderAndAddStyle(this.date);
                 this.initEvents();
             }else{
+                console.log('already render');
                 this.renderAndAddStyle(this.date); //获取到刚刚点击的日期
-                this.target.next('.calendarSelector').css("display", "block");
+                calendarAreaEL.css("display", "block");
+                this.changeToDateView(); // 默认显示选择日期界面
             }
 
-            this.height = this.target.outerHeight();
             this.place();
             $(window).on('resize',function(event) {
                 self.place();
             });
             $(document).keydown($.proxy(this.keydownHandler,self));
             $(document).on('mousedown', function(ev){
-                if ($(ev.target).closest('.calendarSelector').length == 0) {
+                if ($(ev.target).closest('#calendarS_' + self.cid).length == 0) {
                     self.hide();
                 }
             });
         },
+
         hide: function(){
             $(window).off('resize', this.place);
             $(document).off('mousedown', this.hide);
@@ -362,10 +368,88 @@
             this.pickerArea.css("display", "none");            
         },
         place: function(){
-            var offset = this.target.offset();
+            var self = this;
+            var direction = this.direction;
+            var docRect = {
+                height: document.body.clientHeight,
+                width: document.body.clientWidth
+            };
+            //获取目标元素的坐标及尺寸
+            var srcRect = $.extend({
+                height: this.target.outerHeight(),
+                width: this.target.outerWidth()
+            }, this.target.offset());
+            //获取弹框的尺寸
+            var popRect = {
+                height: this.popView.height(),
+                width: this.popView.width()
+            };
+            var tbflag = 0,lrflag = 0;
+            switch(direction){
+                case 'Auto':
+                    //计算弹出框离底部和顶部的高度
+                    //距离底部高度
+                    var dbh = docRect.height - (srcRect.top + srcRect.height + popRect.height);
+                    //距离顶部高度
+                    var dth = srcRect.top - popRect.height;
+                    //获取弹出框方向
+                    tbflag = (dbh < 0 && dth > 0) ? 2 : 1;//2为上，1为下;
+                    
+                    
+                    //计算弹出框离左边和右边的距离
+                    //离左边的宽度
+                    var dlw = srcRect.left + srcRect.width - popRect.width;
+                    //距离右边的宽度
+                    var drw = docRect.width - (srcRect.left + popRect.width);
+                    lrflag = (dlw > 0 && drw < 0) ? 8 : 4; //8为左，4为右
+                    
+                    break;
+                case 'rightBottom':
+                    tbflag = 1;lrflag = 4;
+                    break;
+                case 'leftBottom':
+                    tbflag = 1;lrflag = 8;
+                    break;
+                case 'rightTop':
+                    tbflag = 2;lrflag = 4;
+                    break;
+                case 'leftTop':
+                    tbflag = 2;lrflag = 8;
+                    break;
+            }
+            
+            var position = null;
+
+            switch (tbflag | lrflag) {
+                case 6: //右上
+                    position = {
+                        top: srcRect.top - popRect.height,
+                        left: srcRect.left
+                    };
+                    break;
+                case 5: //右下
+                    position = {
+                        top: srcRect.top + srcRect.height,
+                        left: srcRect.left
+                    };
+                    break;
+                case 10: //左上
+                    position = {
+                        top: srcRect.top - popRect.height,
+                        left: srcRect.left + srcRect.width - popRect.width
+                    };
+                    break;
+                case 9: //左下
+                    position = {
+                        top: srcRect.top + srcRect.height,
+                        left: srcRect.left + srcRect.width - popRect.width
+                    };
+                    break;
+            }
+
             this.pickerArea.css({
-                top: offset.top + this.height,
-                left: offset.left
+                top: position.top,
+                left: position.left
             });
         },
         /** 
@@ -388,15 +472,15 @@
             self.yearSelectorEl = $('#datepickerYears', this.pickerArea);
             self.yearSelectorTbodyEl = $('#yearSelectorTBody', self.yearSelectorEl);          
             self.dateSelectorEl = $('#datepickerDays', this.pickerArea);
+            self.popView = self.dateSelectorEl;
             self.dateSelectorTbodyEl = $('#dateSelectorTBody', self.dateSelectorEl);
             self.monthSelectorEl = $('#datepickerMonths', this.pickerArea);
             self.monthSelectorTbodyEl = $('#monthSelectorTBody', self.monthSelectorEl);
             
 
             self.hiddenInput = $('#currentDate',self.dateSelectorEl);
-            
             self.monthTdBtn = $("td", this.monthSelectorTbodyEl);
-            self.yearTdBtn = $('td', this.yearSelectorTbodyEl);
+            
         },
         /**
          *  渲染日期选择区域 
@@ -431,8 +515,9 @@
                     } else {
                         isSelectableYear = 'selectable';
                     }
-                    //默认当前年高亮
-                    if (currentYear === newStartYear){
+                    //isSelectableYear = 'selectable';
+                    //今年高亮
+                    if (self.isToYear(newStartYear)){
                         isThisYear = "onDay";
                     }
                     yearHtml = Tools.Text.format(this.template.year, {
@@ -530,22 +615,31 @@
                 e.stopPropagation();
             });
 
-            $("td.selectable div", this.dateSelectorTbodyEl).mouseout(function() { 
+            this.yearDisplayEl.on('click', function(event) {
+                self.changeToYearView();
+                self.hightLightYear(date);
+                event.stopPropagation();
+            });
+
+            $("td.selectable div", this.dateSelectorTbodyEl).mouseout(function() {
                 if (!$(this).hasClass('onDay')){
                     $(this).removeClass("onHoverDay")
                 }
             });
             
         },
-
-        hightLightMonth: function(date) {
-          
+        /**
+         * 翻年时高亮当前选中的月份
+         * @param  {Object} date 当前时间对象
+         * @return {[type]}      [description]
+         */
+        hightLightMonth: function(date, fromYearView) {
             var months = $("td div",this.monthSelectorTbodyEl).removeClass('onClick');
-
-            if (date.getFullYear() == this.currentDate.getFullYear()){      
-                months.eq(this.monthNumber[date.getMonth()]-1).addClass('onClick');    
+            if (!!!fromYearView){
+                if (date.getFullYear() == this.currentDate.getFullYear()){      
+                    months.eq(this.monthNumber[date.getMonth()]-1).addClass('onClick');    
+                }
             }
-
             months.eq(this.monthNumber[new Date().getMonth()]-1).removeClass('onDay');
 
             //给定时间的年份等于当前年份时才显示当月
@@ -553,6 +647,21 @@
                 months.eq(this.monthNumber[new Date().getMonth()]-1).addClass('onDay');
             }
         },
+        /**
+         * 翻年(10年跨度)时高亮当前年份
+         * @return {[type]} [description]
+         */
+        hightLightYear: function(date) {
+            var tmpYear = date.getFullYear();
+            $("td.selectable div", this.yearSelectorTbodyEl).removeClass("onClick").removeClass('onHoverDay');
+            $("td.selectable[year=" + tmpYear + "] div", this.yearSelectorTbodyEl).addClass("onClick");      
+            
+            //给定时间的年份等于当前年份时才显示
+            if ( this.currentDate.getFullYear() === (new Date().getFullYear())) {
+                $("td.selectable[year=" + this.currentDate.getFullYear() + "] div", this.yearSelectorTbodyEl).addClass("onDay");
+            }
+        },
+
         isSameDate: function(newDate) {
           return !this.currentDate || !(this.currentDate.getFullYear() == newDate.getFullYear() && this.currentDate.getMonth() == newDate.getMonth())
         },
@@ -566,17 +675,35 @@
             var now = new Date();
             return (currentDay.getMonth() == now.getMonth()) && (currentDay.getFullYear() == now.getFullYear()) && (currentDay.getDate() == now.getDate())
         },
-
-        /*isClickDay: function(currentDay,date) {
-            return (currentDay.getMonth() == date.getMonth()) && (currentDay.getFullYear() == date.getFullYear()) && (currentDay.getDate() == date.getDate())
-        },*/
+        /**
+         * 判断给定的日期年份是否为今年
+         * @param  {[Object]}  date [给定的标准日期对象]
+         * @return {Boolean}      [是否今年]
+         */
+        isToYear: function(currentYear) {
+            return currentYear == (new Date()).getFullYear();
+        },
+        
+        //切换视图
+        changeToYearView: function(){
+            this.popView = this.yearSelectorEl;
+            this.dateSelectorEl.hide();
+            this.monthSelectorEl.hide();
+            this.yearSelectorEl.show();
+        },
         changeToMonthView: function() {
+            this.popView = this.monthSelectorEl;
             this.dateSelectorEl.hide();
             this.monthSelectorEl.show();
+            this.place();
+            this.yearSelectorEl.hide();
         },
         changeToDateView: function() {
+            this.popView = this.dateSelectorEl;
             this.dateSelectorEl.show();
-            this.monthSelectorEl.hide();  
+            this.place();
+            this.monthSelectorEl.hide();
+            this.yearSelectorEl.hide();
         },
 
         /**
@@ -598,30 +725,34 @@
               return;
             }
 
-            this.renderAndAddStyle(this.getSelectedDateObj(),this.fromMonthClick);
+            this.renderAndAddStyle(this.getSelectedDateObj(),this.clickFromMonthView);
             this.renderDateSelectArea(newDate);
+            this.place();
         },
+
         /**
-         * 统一在该方法内重新渲染月视图及添加onClick样式
+         * 统一在该方法内再次渲染月视图及onClick样式
          * @param  {Object} date           选择的日期
-         * @param  {Boolean} fromMonthClick 是否从月视图点过来的
+         * @param  {Boolean} clickFromMonthView 是否从月视图点过来的，若是，则不添加onClick样式
          * @return 
          */
-        renderAndAddStyle: function(date,fromMonthClick) {
-
+        renderAndAddStyle: function(date,clickFromMonthView) {
+            var self = this;
             var stringDate = Tools.Date.formatToString(date,'yyyy-MM-dd');
             this.hiddenInput.val(Tools.Date.formatToString(date,this.dateFormat));
             this.renderDateSelectArea(date);
 
             $("td.selectable div", this.dateSelectorTbodyEl).removeClass("onClick").removeClass('onHoverDay');
-            if (!fromMonthClick) {
+
+            if (!clickFromMonthView) {
                 $("td[date=" + stringDate + "] div", this.dateSelectorTbodyEl).addClass("onClick");    
             }
             
         },
+
         /**
          * 年切换
-         * @param {Int} year 上一年下一年,year可以为负数,负数表示上一年
+         * @param {Int} amount 上一年下一年,amount可以为负数,负数表示上一年
          */
         addYear: function(amount) {
 
@@ -629,25 +760,49 @@
               alert('翻不了啦');
               return;
             }
-            var newDate = new Date(this.currentDate.getFullYear()+amount,this.currentDate.getMonth(), this.currentDate.getDate());
+            var newDate = new Date(this.currentDate.getFullYear() + amount,this.currentDate.getMonth(), this.currentDate.getDate());
             
             this.renderDateSelectArea(newDate);
-            this.hightLightMonth(this.getSelectedDateObj());
+            this.hightLightMonth(this.getSelectedDateObj(), this.clickFromYearView);
         },
+
+        /**
+         * 选择年份范围
+         * @param {Int} amount 上10年或下10年。
+         */
         addRangeYear: function(amount) {
 
             if (this.currentDate.getFullYear() + amount > this.maxYear || this.currentDate.getFullYear() + amount <= this.minYear){
               alert('翻不了啦');
               return;
             }
+
+            var newDate = new Date(this.currentDate.getFullYear() + amount,this.currentDate.getMonth(), this.currentDate.getDate());
+            
+            var stringYear = this.getSelectedDateObj().getFullYear();
+            
+            this.renderDateSelectArea(newDate);
+            
+            $("td.selectable div", this.yearSelectorTbodyEl).removeClass("onClick").removeClass('onHoverDay');
+            $("td.selectable[year=" + stringYear + "] div", this.yearSelectorTbodyEl).addClass("onClick");  
         },
+
         /**
          * 选择年份
          * @param  {Object} event 事件对象
          */
-        selectYear: function(e) {
-            console.log('选择年份');
+        selectYear: function(clickedYear) {
+            
+            var newDate = new Date(clickedYear,  this.currentDate.getMonth(), this.getSelectedDateObj().getDate());
+
+            this.hiddenInput.val(Tools.Date.formatToString(newDate, this.dateFormat));            
+            this.renderDateSelectArea(this.getSelectedDateObj());
+
+            this.changeToMonthView();
+            this.clickFromYearView = true;
+            this.hightLightMonth(newDate, this.clickFromYearView);
         },
+
         /**
          * 选择月份
          * @param  {Object} event 事件对象
@@ -661,8 +816,8 @@
             var newDate = new Date(this.currentDate.getFullYear(), clickedMonth - 1, this.getSelectedDateObj().getDate());
             
             this.hiddenInput.val(Tools.Date.formatToString(newDate, this.dateFormat));
-            this.fromMonthClick = true;
-            this.renderAndAddStyle(this.getSelectedDateObj(),this.fromMonthClick);
+            this.clickFromMonthView = true;
+            this.renderAndAddStyle(this.getSelectedDateObj(),this.clickFromMonthView);
 
             this.changeToDateView();
         },
@@ -697,13 +852,13 @@
             };
             this.callback(callbackData);
 
-            this.fromMonthClick = false;
+            this.clickFromMonthView = false;
+            this.clickFromYearView = false;
             this.hide();
             
         },
         // 翻天处理
         switchTo: function(amount) {
-            
             var selectedDate = this.getSelectedDateObj();
             var pickerDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + amount);
             this.renderAndAddStyle(pickerDate);
@@ -719,6 +874,7 @@
                 pickerDate.setDate(0);
             };
             this.renderAndAddStyle(pickerDate);
+            this.place();
         },
         // 返回指定两个日期之间的天数 如果是42天，则返回41
         daysBetween: function(start, end) {
@@ -781,17 +937,6 @@
                 return;
             }
             event.preventDefault();
-        },
-        /**
-         * 回调方法
-         * @example
-           var calendar = new CalendarSelector({container:$("#divId")});
-           calendar.onchange(function(data){
-               console.log(data);
-           });
-         */
-        onchange: function(callback) {
-            this.callback = callback;
         }
     };
     //构造器

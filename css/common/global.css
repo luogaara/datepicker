@@ -172,9 +172,11 @@ mark{background:#ff0;} /* 高亮显示 */
 .i-tab,
 .error-tab,.add_integral, .i-writeNew, .i-wView,.i-newMenuMore, .i-fetion, .i-setup, .i-healthy, .i-user,
 .i_nWarn, .i_t_min, .i_t_zoomin, .i_t_zoomout, .i_add, .i_set, .i_dels, .i_delb, .i_calendars, .i_clouds, .i_clouds_on, .i_redDot, .mailLogo_new, .i_homeNew, .i_icok,
-.i_attachmentS, .i_bigAttachmentS, .i_bigAttachmentC, .i_cloudS, .i-uploadS, .i_phoneS,.i_wImg,.i_wCutImg,.i-ipWord, .i_139Prompt, .i_c_vacation, .i_c_work, .i_cDo, .i_cDo2, .i_cDon, .i_cDoy, .i_question, .i_smsSearch,.i_s_sms,.i_s_smsCheck,.i_s_smsCross,.i_s_smsRe,.i_s_smsSet,.i_s_smsSend,.i_s_smsOrder,.i_s_smsLog,.i_s_smsCollect,.i_s_smsLover, .i_c_upB, .i_c_downB, .i-smile,.i-notice,.i-hotIco,.i-orderMailIco, .closeMin, .infoBox, .i_groupAdd, .i_groupIco, .i_groupAdd_s, .i_groupIco_s, .i_groupIco_add, .i_groupIco_out, .i_groupIco_pic, .i_groupIco_phiz, .i_groupIco_amend, .i_icoTime, .i_groupIco_ok, .i_groupIco_ck, .i_triangleBtn, .i_writeSMS, .i_writeMail, .i_writeAgain, .i_writeCharge, .i_writeBtnA, .i_writeBtnB, .writeOk_windowTop, .writeOk_tableTop, .i-tipsNetworkDisk, .i-createTime, .i-addPeople, .i-address, .i-meeting, .i-calendarLeft, .i-calendarRight, .i-conSina, .i-conMail, .i-conMoney, .i-conTime, .i-conAddress, .i-conUser
-{background:url(../../images/global/global_24.png) no-repeat;_background:url(../../images/global/global.png) no-repeat;display:inline-block;overflow:hidden;vertical-align:middle;}
+.i_attachmentS, .i_bigAttachmentS, .i_bigAttachmentC, .i_cloudS, .i-uploadS, .i_phoneS,.i_wImg,.i_wCutImg,.i-ipWord, .i_139Prompt, .i_c_vacation, .i_c_work, .i_cDo, .i_cDo2, .i_cDon, .i_cDoy, .i_question, .i_smsSearch,.i_s_sms,.i_s_smsCheck,.i_s_smsCross,.i_s_smsRe,.i_s_smsSet,.i_s_smsSend,.i_s_smsOrder,.i_s_smsLog,.i_s_smsCollect,.i_s_smsLover, .i_c_upB, .i_c_downB, .i-smile,.i-notice,.i-hotIco,.i-orderMailIco, .closeMin, .infoBox, .i_groupAdd, .i_groupIco, .i_groupAdd_s, .i_groupIco_s, .i_groupIco_add, .i_groupIco_out, .i_groupIco_pic, .i_groupIco_phiz, .i_groupIco_amend, .i_icoTime, .i_groupIco_ok, .i_groupIco_ck, .i_triangleBtn, .i_writeSMS, .i_writeMail, .i_writeAgain, .i_writeCharge, .i_writeBtnA, .i_writeBtnB, .writeOk_windowTop, .writeOk_tableTop, .i-tipsNetworkDisk, .i-createTime, .i-addPeople, .i-address, .i-meeting, .i-calendarLeft, .i-calendarRight, .i-conSina, .i-conMail, .i-conMoney, .i-conTime, .i-conAddress, .i-conUser, .i-localUpload, .i-mobileUpload, .i-whirlLeft, .i-whirlRight, .i-notSongS, .i-skinTime
+,.i-fileSendState,.i-fileSendPercentage,
+.i-lgAt,.i-lgPw,.i-sendFilePeo,.i_group2_leftTop{background:url(../../images/global/global_24.png) no-repeat;_background:url(../../images/global/global.png) no-repeat;display:inline-block;overflow:hidden;vertical-align:middle;}
 .mailLogo_new{background-position:-287px -310px; width:93px; height:22px;}
+.i_group2_leftTop{background-position:-51px -344px; width:15px; height:10px;}
 .i_homeNew{background-position:-382px -310px; width:12px; height:12px;}
 .i_triangle{width:7px;height:4px;background-position:-450px -22px;}
 .i_triangle_d{width:7px;height:4px;background-position:-375px -22px;}
@@ -297,6 +299,12 @@ mark{background:#ff0;} /* 高亮显示 */
 .i-conTime{background-position:-473px -417px; width:16px; height:16px;}
 .i-conAddress{background-position:-475px -434px; width:16px; height:18px;}
 .i-conUser{background-position:-476px -453px; width:16px; height:16px;}
+.i-localUpload{background-position:-271px -496px; width:12px; height:12px;}
+.i-mobileUpload{background-position:-285px -496px; width:10px; height:14px;}
+.i-whirlLeft{background-position:-296px -496px; width:16px; height:14px;}
+.i-whirlRight{background-position:-313px -496px; width:16px; height:14px;}
+.i-notSongS{background-position: -97px -474px; height: 11px; width: 11px;}
+.i-skinTime{background-position:-347px -496px; width:16px; height:15px;}
 
 .i_groupAdd{background-position:-329px -371px; width:32px; height:32px;}
 .i_groupIco{background-position:-362px -371px; width:32px; height:32px;}
@@ -364,6 +372,12 @@ mark{background:#ff0;} /* 高亮显示 */
 .i_writeBtnB:hover{background-position:-357px -469px;}
 .writeOk_windowTop{background-position:-478px -344px; width:9px; height:12px;}
 .writeOk_tableTop{background-position:-488px -344px; width:9px; height:6px;}
+.i-fileSendState,.i-fileSendPercentage{width:15px;height:15px;}
+.i-fileSendState{background-position:-256px -493px;}
+.i-fileSendPercentage{background-position:-256px -508px;}
+.i-lgAt{background-position:-283px -514px; width:16px; height:15px;}
+.i-lgPw{background-position:-302px -513px; width:14px; height:16px;}
+.i-sendFilePeo{background-position:-330px -496px; width:16px; height:14px;}
 
 .error-tab{width: 16px;height: 16px;background-position: -411px -256px;	position: absolute;top:6px;left:10px;}
 .error-loading{width: 16px;height: 16px;background:url(../../images/global/loading_xs.gif) no-repeat;display: inline-block;overflow: hidden;position: absolute;top:6px;left:10px;}
@@ -517,8 +531,8 @@ mark{background:#ff0;} /* 高亮显示 */
 .addFileBtn span{position:absolute;top: 25px;width:70px; text-align:center;display: inline-block;}
 .enLoading{background:url(../../images/global/enLoading.gif)!important;}
 /* ===== 通用按纽 =====   */
-.btnSure,.btnNormal,.btnTb,.btnGreen,.btnG,.btnGreenS{display:inline-block;cursor:pointer;height:22px;_height:23px;padding-left:12px;overflow:hidden;vertical-align:middle;}
- .btnSure span,.btnNormal span,.btnTb span,.btnGreen span,.btnG span,.btnGreenS span{display:inline-block;line-height:24px;padding-right:12px;overflow:visible;text-align:center;vertical-align:top;white-space:nowrap;}
+.btnSure,.btnNormal,.btnTb,.btnRed,.btnG,.btnGreenS{display:inline-block;cursor:pointer;height:22px;_height:23px;padding-left:12px;overflow:hidden;vertical-align:middle;}
+ .btnSure span,.btnNormal span,.btnTb span,.btnRed span,.btnG span,.btnGreenS span{display:inline-block;line-height:24px;padding-right:12px;overflow:visible;text-align:center;vertical-align:top;white-space:nowrap;}
 .btnGreenS{color:#fff;}
 .btnTb span{line-height:27px\9;*line-height:26px;}
 .btnTb .pr_20 .i_triangle_d, .btnTb .pr_25 .i_triangle_d{position:absolute;margin:12px 0 0 6px; *margin-top:7px;}
@@ -609,28 +623,47 @@ mark{background:#ff0;} /* 高亮显示 */
 .createBtn_span .btnG:hover, .btnSetB span:hover{background:#00AD14;}
 .createBtn_span .btnG span b{vertical-align:middle; font-size:20px; position:relative; top:-2px; *top:-1px; display:inline-block;}
 
-.btnG, .btnSure, .btnGreen{height:24px; line-height:24px; color:#fff;
+.btnG, .btnSure, .btnRed{height:24px; line-height:24px; color:#fff;
     background:#00BE16;
     background: -moz-gradient(linear, 0 0, 0 100%, from(#00C417), to(#00B615));
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#00C417), to(#00B615));
     background: linear-gradient(#00C417 0%,#00B615 100%);
 
 }
-
-.btnG span, .btnSure span, .btnGreen span{height:24px; line-height:24px; color:#fff;}
-.btnG:hover, .btnSure:hover, .btnStrong:hover, .btnGreen:hover{
+.btnRed{
+    background:#E80101;
+    background: -moz-gradient(linear, 0 0, 0 100%, from(#F00000), to(#DE0202));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#F00000), to(#DE0202));
+    background: linear-gradient(#F00000 0%,#DE0202 100%);
+    -webkit-transition:background-color 1s ease-in;
+}
+.btnG span, .btnSure span, .btnRed span{height:24px; line-height:24px; color:#fff;}
+.btnG:hover, .btnSure:hover, .btnStrong:hover, .btnRed:hover{
     background:#009F13;
     background: -moz-gradient(linear, 0 0, 0 100%, from(#00AE15), to(#009411));
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#00AE15), to(#009411));
     background: linear-gradient(#00AE15 0%,#009411 100%);
 
 }
-
-.btnG:active, .btnSure:active, .btnStrong:active, .btnGreen:active, .btnSetG:active, .btnSetB:active, .btnSetB:active span{
+.btnRed:hover{
+    background:#D10000;
+    background: -moz-gradient(linear, 0 0, 0 100%, from(#DC0000), to(#C30000));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#DC0000), to(#C30000));
+    background: linear-gradient(#DC0000 0%,#C30000 100%);
+    -webkit-transition:background-color 1s ease-in;
+}
+.btnG:active, .btnSure:active, .btnStrong:active, .btnRed:active, .btnSetG:active, .btnSetB:active, .btnSetB:active span{
     background:#008910;
     background: -moz-gradient(linear, 0 0, 0 100%, from(#009A12), to(#00790E));
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#009A12), to(#00790E));
     background: linear-gradient(#009A12 0%,#00790E 100%);
+}
+.btnRed:active{
+    background:#BA0000;
+    background: -moz-gradient(linear, 0 0, 0 100%, from(#CF0000), to(#A20000));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#CF0000), to(#A20000));
+    background: linear-gradient(#CF0000 0%,#A20000 100%);
+    -webkit-transition:background-color 1s ease-in;
 }
 
 .btnSetG{background:#00B615; height:28px; line-height:28px; color:#fff;
@@ -674,6 +707,24 @@ mark{background:#ff0;} /* 高亮显示 */
 
 .btnTbGray, .btnTbGray:hover{border:1px solid #AAA;background: #AAA; color:#fff; cursor:default;}
 .btnTbGray span{color:#fff !important;}
+
+/*新灰色按钮*/
+.btnGrayNew{border:1px solid #909090; padding:0 15px; display:inline-block; color:#666; height:26px; line-height:26px;
+	background:#f3f3f3;
+    background: -moz-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#eeeeee));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#eeeeee));
+    background: linear-gradient(#fdfdfd 0%,#eeeeee 100%);
+	-moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.btnGrayNew:hover{border:1px solid #788c94; color:#666;
+	background:#e8f5fb;
+    background: -moz-gradient(linear, 0 0, 0 100%, from(#fafdfe), to(#e2f2f9));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fafdfe), to(#e2f2f9));
+    background: linear-gradient(#fafdfe 0%,#e2f2f9 100%);
+}
+.btnGrayNew i{margin-right:6px;}
 
 .paddingNo{_margin-left:-3px;}
 .paddingNo span{padding:0 7px !important; margin:0 !important;}
@@ -816,13 +867,15 @@ background:#fff;*/
 .closeTipsLayerBtn:hover .i-closeTipsLayer{background-position:-66px -53px;}
 
 .i-tipsRemind,.i-tipsErrow,.i-tipsDoubt,.i-tipsCorrect,.i-tipsWarning,
-.i-tipsLayerArrow,
+.i-tipsLayerArrow,.i-tipsRbArrow,
 .i-closeTipsLayer{display:inline-block;overflow:hidden;background:url(../../images/global/tips.png) no-repeat;background-image:url(../../images/global/tipsIE6.png)\9;}
 .i-tipsRemind{width:36px;height:36px;background-position:0 0;} /* 提醒 */
 .i-tipsErrow{width:36px;height:36px;background-position:-40px 0;} /* 错误失败 */
 .i-tipsWarning{width:36px;height:36px;background-position:-80px 0;} /* 普通提示 */
 .i-tipsCorrect{width:36px;height:36px;background-position:-120px 0;} /* 正确完成 */
 .i-tipsDoubt{width:36px;height:36px;background-position:-160px 0;} /* 疑问问句 */
+
+.i-tipsRbArrow{background-position:-35px -40px;}
 
 .i-closeTipsLayer{width:13px;height:13px;background-position:-66px -40px;}
 
@@ -2124,6 +2177,16 @@ border-radius:3px;
 
 .newMain{padding:0 24px;}
 
+/*ioc*/
+.i_addMan,.i_addMan2,.i_group_mail,.i_group_menology,.i_group_photo,.i_group_file,.i_group_man{background:url(../../images/global/ioc_group.png) no-repeat;-background:url(../../images/global/ioc_group8.png) no-repeat;}
+.i_addMan{background-position:-209px -32px; width:34px; height:34px;}
+.i_addMan2{background-position:-210px -66px; width:34px; height:34px;}
+.i_group_mail{background-position: -125px -97px; width:58px; height:40px;}
+.i_group_menology{background-position: -62px -85px ; width:50px; height:54px;}
+.i_group_photo{background-position: -125px -26px ; width:59px; height:49px;}
+.i_group_file{background-position: -63px -26px ; width:50px; height:49px;}
+.i_group_man{background-position: -220px -2px ; width:18px; height:16px;position:absolute;left:11px;top:6px;}
+
 /*写信高亮状态*/
 .writeTable-txt-on{/*background-color:#fff9dd;*/ border:1px solid #9bbfdc !important;
 	/*
@@ -2308,6 +2371,19 @@ border-radius:3px;
 .guideUploadPic .guideUploadPicBtn{position:absolute; left:95px; bottom:29px; width:100px; height:28px;}
 .guideMusic{background-position:-318px -184px; width:170px; height:200px; right:15px; top:20px; z-index:10000;}
 .guideMusic .guideAddattra_close{margin:55px 0 0 145px;}
+.guideMenuOne, .guideMenuTwo, .guideMenuThree, .guideMenuFour{background:url(../../images/201312/guide_05.png) no-repeat; _background:url(../../images/201312/guide_05_8.png) no-repeat; display:inpine-block; position:absolute;}
+.guideMenu_close{position:absolute; width:14px; height:14px; font-size:1px; right:19px; top:26px;}
+.guideMenuOne{background-position:0 0; width:316px; height:307px;}
+.guideMenuOne .guideBtn{width:68px; height:28px; position:absolute; left:120px; bottom:28px;}
+.guideMenuTwo{background-position:0 -307px; width:408px; height:325px;}
+.guideMenuTwo .guideBtn{width:68px; height:28px; position:absolute; left:218px; bottom:27px;}
+.guideMenuThree{background-position:0 -632px; width:304px; height:328px;}
+.guideMenuThree .guideBtn{width:76px; height:28px; position:absolute; left:152px; bottom:19px;}
+.guideMenuThree .guideBtnOther{width:76px; height:28px; position:absolute; left:64px; bottom:19px;}
+.guideMenuFour{background-position:0 -963px; width:394px; height:196px;}
+.guideMenuFour .guideMenu_close{right:17px; top:56px;}
+.guideMenuFour .guideBtn{width:77px; height:28px; position:absolute; left:240px; bottom:30px;}
+.guideMenuFour .guideBtnOther{width:76px; height:28px; position:absolute; left:152px; bottom:30px;}
 
 /*首页左侧滚动条阴影*/
 .subListScrollTop, .subListScrollBottom{background:url(../../images/global/subListScroll.png) no-repeat; _background:none; width:100%; height:20px; display:block; position:absolute; left:0;}
