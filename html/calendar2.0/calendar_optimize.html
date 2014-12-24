@@ -4,43 +4,45 @@
         
         <meta charset="utf-8">
         <!--样式文件自己精简去吧 PS：样式不是我写的哦-->
-        <link rel="stylesheet" href="../../css/common/global.css" type="text/css">
-        <link rel="stylesheet" href="../../css/common/frame.css" type="text/css">
-        <link rel="stylesheet" href="../../css/module/calendar.css" type="text/css">
-        <link rel="stylesheet" href="../../css/module/schedule.css" type="text/css" />
-        <link rel="stylesheet" href="../../css/module/square.css" type="text/css"/>
-        <style type="text/css">       
-    </style>
+        <link rel="stylesheet" href="../../css/common/global.css" type="text/css"></link>
+        <link rel="stylesheet" href="../../css/common/frame.css" type="text/css"></link>
+        <link rel="stylesheet" href="../../css/module/calendar.css" type="text/css"></link>
+        <link rel="stylesheet" href="../../css/module/schedule.css" type="text/css"></link>
+        <link rel="stylesheet" href="../../css/module/square.css" type="text/css"></link>
+
         <script src="../../js/jquery-1.8.3.js"></script>
         <script type="text/javascript" src="../../js/calendarSelector.js"></script>
     </head>
     <body>
-	   <div style="left:200px;bottom:100px;position:absolute">
-            <button id="demo1">按钮一</button> 
-            <button id="demo2">按钮二</button>
+	   <div style="left:200px;position:absolute">
+            <button id="demo1">2222</button> 
+            <button id="demo2" >按钮二</button>
             <div id="getDate"></div>
         </div>
         
         <script>
         //测试代码
         $(function() {
-          new CalendarSelector({
+          var calendar = new CalendarSelector({
             container:$("#demo1"),
-            date:'2014/11/20',
+            date:'2014-02-22',
             dateFormat:'yyyy-MM-dd',
-            direction: 'rightTop',
             callback: function(date){
+                console.log(date);
                 $("#getDate").html('您已选择：' + date.dateString);
             }});
 
-          new CalendarSelector({
+          var calendar = new CalendarSelector({
             container:$("#demo2"),
-            date:'2014/12/10',
+            date:'2014-12-20',
             dateFormat:'yyyy-MM-dd',
-            direction: 'leftBottom',
+            direction: 'rightTop',
             callback: function(date){
-                $("#getDate").html('您已选择：' + date.dateString);
+                console.log(date);
+                $("#getDate").html('您已选择：' + date);
             }});
+
+          
         });
     </script>
     </body>

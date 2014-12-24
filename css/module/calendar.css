@@ -303,7 +303,7 @@
 .divInputBoxPor_r .divInput{width:98%;}
 .divInputBoxPor_r .i-addPeople{position:absolute; right:8px; top:7px;}
 .divInputBoxPor_l{padding-left:31px;}
-.divInputBoxPor_l .divInput{width:99%;}
+.divInputBoxPor_l .divInput{width:99%; resize:none; overflow:auto; outline:none;}
 .divInputBoxPor_l .i-address{position:absolute; left:8px; top:5px;}
 .accessoriesBox{margin-top:10px;}
 .accessoriesBox .writeattrlist, .accessoriesBox .writeattrlist .attrlistUl li{border:none;}

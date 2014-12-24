@@ -6,7 +6,7 @@
  * @param {Date} date 可选,初始化的时间
  * @param {String} dateFormat 可选,日期显示格式。如"yyyy-MM-dd"
  * @param {Function} callback 可选,选择日期后的回调
- * @param {String} direction 可选,日历选择器的展示位置。默认展示在元素target下方并左对齐
+ * @param {String} direction 可选,日历选择器的展示位置
  * 
  * @examples
  * new CalendarSelector({container:$("#demo"),date:'2014-11-12',dateFormat:'yyyy-MM-dd',callback});
@@ -200,7 +200,7 @@
         },
         monthNames: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         monthNumber: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
-        minYear: 1900,
+        minYear: 1901,
         maxYear: 2049,
         /**
          * 初始化
@@ -274,7 +274,13 @@
 
             //选择某年
             this.yearSelectorTbodyEl.on('click', 'td',function(event) {
-              self.selectYear($(event.currentTarget).attr("year"));
+                var tmpYear = $(event.currentTarget).attr("year");
+                if (tmpYear > self.maxYear || tmpYear < self.minYear){
+                    return;
+                } else {
+                    self.selectYear(tmpYear);    
+                }
+                
             });
             //选择某月
             this.monthTdBtn.on('click', function(event) {
@@ -334,6 +340,7 @@
                 e.preventDefault();
             }
             var calendarAreaEL = $('#calendarS_' + this.cid);
+
             if (calendarAreaEL.length == 0){//还没渲染
                 console.log('no render');
                 
@@ -367,6 +374,7 @@
             $(document).off("keydown", this.keydownHandler);
             this.pickerArea.css("display", "none");            
         },
+
         place: function(){
             var self = this;
             var direction = this.direction;
@@ -456,30 +464,28 @@
          * 缓存相关DOM节点及DOM区域
          **/
         keepElements: function() {
-            var self = this;
+            this.prevMonthBtn = $('#prevMonth', this.pickerArea);
+            this.nextMonthBtn = $('#nextMonth', this.pickerArea);
+            this.prevYearBtn = $('#prevYear', this.pickerArea);
+            this.nextYearBtn = $('#nextYear', this.pickerArea);
+            this.prevRangeYearBtn = $('#prevRangeYear', this.pickerArea);
+            this.nextRangeYearBtn = $('#nextRangeYear', this.pickerArea);
             
-            self.prevMonthBtn = $('#prevMonth', this.pickerArea);
-            self.nextMonthBtn = $('#nextMonth', this.pickerArea);
-            self.prevYearBtn = $('#prevYear', this.pickerArea);
-            self.nextYearBtn = $('#nextYear', this.pickerArea);
-            self.prevRangeYearBtn = $('#prevRangeYear', this.pickerArea);
-            self.nextRangeYearBtn = $('#nextRangeYear', this.pickerArea);
-            
-            self.dateDisplayEl = $('#dateDisplay', this.pickerArea);
-            self.yearDisplayEl = $('#yearDisplay', this.pickerArea);
-            self.yearRangeDisplayEl = $('#yearRangeDisplay', this.pickerArea);
+            this.dateDisplayEl = $('#dateDisplay', this.pickerArea);
+            this.yearDisplayEl = $('#yearDisplay', this.pickerArea);
+            this.yearRangeDisplayEl = $('#yearRangeDisplay', this.pickerArea);
 
-            self.yearSelectorEl = $('#datepickerYears', this.pickerArea);
-            self.yearSelectorTbodyEl = $('#yearSelectorTBody', self.yearSelectorEl);          
-            self.dateSelectorEl = $('#datepickerDays', this.pickerArea);
-            self.popView = self.dateSelectorEl;
-            self.dateSelectorTbodyEl = $('#dateSelectorTBody', self.dateSelectorEl);
-            self.monthSelectorEl = $('#datepickerMonths', this.pickerArea);
-            self.monthSelectorTbodyEl = $('#monthSelectorTBody', self.monthSelectorEl);
+            this.yearSelectorEl = $('#datepickerYears', this.pickerArea);
+            this.yearSelectorTbodyEl = $('#yearSelectorTBody', this.yearSelectorEl);          
+            this.dateSelectorEl = $('#datepickerDays', this.pickerArea);
+            this.popView = this.dateSelectorEl;
+            this.dateSelectorTbodyEl = $('#dateSelectorTBody', this.dateSelectorEl);
+            this.monthSelectorEl = $('#datepickerMonths', this.pickerArea);
+            this.monthSelectorTbodyEl = $('#monthSelectorTBody', this.monthSelectorEl);
             
 
-            self.hiddenInput = $('#currentDate',self.dateSelectorEl);
-            self.monthTdBtn = $("td", this.monthSelectorTbodyEl);
+            this.hiddenInput = $('#currentDate',this.dateSelectorEl);
+            this.monthTdBtn = $("td", this.monthSelectorTbodyEl);
             
         },
         /**
@@ -504,6 +510,7 @@
                 var yearArr = [];
                 self.yearRangeDisplayEl.html(newStartYear + '-' + (newStartYear + 9));
                 newStartYear -= 1;
+
                 // 开始渲染年份
                 for (var k = 1; k < 13; k++) {
                     var isSelectableYear = '',
@@ -539,8 +546,20 @@
                 }
 
 
-                var rangeStart = this.rangeStart(date), rangeEnd = this.rangeEnd(date);
-                var numDays = this.daysBetween(rangeStart, rangeEnd);      
+                var d = new Date(newDate),
+                year = d.getFullYear(),
+                month = d.getMonth();
+
+                var prevMonth = new Date(year, month-1, 28,0,0,0,0),
+                day = self.getDaysInMonth(prevMonth.getFullYear(), prevMonth.getMonth());
+
+                prevMonth.setDate(day);
+                prevMonth.setDate(day - (prevMonth.getDay() + 7)%7);
+                var nextMonth = new Date(prevMonth);
+                nextMonth.setDate(nextMonth.getDate() + 41);
+
+                var rangeStart = prevMonth, rangeEnd = nextMonth;
+                var numDays = this.daysBetween(rangeStart, rangeEnd);                
                 var dayCells = "";
                 var datesArr = [];
                 var dateArr = [];
@@ -716,12 +735,12 @@
 
             //默认最小值1900年2月
             if (this.currentDate.getFullYear() <= this.minYear && this.currentDate.getMonth() + amount <= 1){
-              alert('翻不了啦！');
+              
               return;
             }
             //默认最大值2049年12月
             if (this.currentDate.getFullYear() >= this.maxYear && this.currentDate.getMonth() + amount >= 12){
-              alert('翻不了啦！');
+              
               return;
             }
 
@@ -757,13 +776,25 @@
         addYear: function(amount) {
 
             if (this.currentDate.getFullYear() + amount > this.maxYear || this.currentDate.getFullYear() + amount <= this.minYear){
-              alert('翻不了啦');
               return;
             }
+
+            this.nextYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+            this.prevYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
             var newDate = new Date(this.currentDate.getFullYear() + amount,this.currentDate.getMonth(), this.currentDate.getDate());
             
             this.renderDateSelectArea(newDate);
             this.hightLightMonth(this.getSelectedDateObj(), this.clickFromYearView);
+
+            if (this.currentDate.getFullYear() + amount > this.maxYear){
+              this.nextYearBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+              return;
+            }
+
+            if (this.currentDate.getFullYear() + amount <= this.minYear){
+                this.nextYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+                return;
+            }
         },
 
         /**
@@ -772,10 +803,16 @@
          */
         addRangeYear: function(amount) {
 
-            if (this.currentDate.getFullYear() + amount > this.maxYear || this.currentDate.getFullYear() + amount <= this.minYear){
-              alert('翻不了啦');
-              return;
+            if (this.currentDate.getFullYear() + amount > this.maxYear){
+                return;
             }
+
+            if (this.currentDate.getFullYear() + amount <= this.minYear) {
+                return;
+            }
+
+            this.nextRangeYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+            this.prevRangeYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
 
             var newDate = new Date(this.currentDate.getFullYear() + amount,this.currentDate.getMonth(), this.currentDate.getDate());
             
@@ -785,6 +822,16 @@
             
             $("td.selectable div", this.yearSelectorTbodyEl).removeClass("onClick").removeClass('onHoverDay');
             $("td.selectable[year=" + stringYear + "] div", this.yearSelectorTbodyEl).addClass("onClick");  
+
+            if (this.currentDate.getFullYear() + amount > this.maxYear){
+                this.nextRangeYearBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+                return;
+            }
+
+            if (this.currentDate.getFullYear() + amount <= this.minYear) {
+                this.prevRangeYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+                return;
+            }
         },
 
         /**
@@ -838,7 +885,8 @@
             var lunarObj = new Lunar(selectedYear, selectedMonth, selectedDate);
             var lunarDate = lunarObj.ldayStr;
             var lunarMonth = lunarObj.lmonthStr;
-            var lunarStr = lunarMonth + lunarDate;
+            var lunarYear = lunarObj.lyearStr;
+            var lunarhsebYear = lunarObj.hsebYear;
             //返回给调用者的数据
             var callbackData = {
                 dateObj:dateObj,
@@ -848,7 +896,8 @@
                 date:selectedDate,
                 lunarDate:lunarDate,
                 lunarMonth: lunarMonth,
-                lunarMonthDate: lunarStr
+                lunarYear: lunarYear,
+                hsebYear: lunarhsebYear
             };
             this.callback(callbackData);
 
@@ -856,6 +905,10 @@
             this.clickFromYearView = false;
             this.hide();
             
+        },
+        //设置某天
+        setDate: function(date) {
+            this.renderAndAddStyle(date);
         },
         // 翻天处理
         switchTo: function(amount) {
@@ -883,20 +936,12 @@
             return (end - start) / 86400000;
         },
 
-        //算出当前月份视图的第一天和最后一天
-        changeDayTo: function(dayOfWeek, date, direction) {
-            var difference = direction * (Math.abs(date.getDay() - dayOfWeek - (direction * 7)) % 7);
-            return new Date(date.getFullYear(), date.getMonth(), date.getDate() + difference);
+        //是否闰年
+        isLeapYear: function (year) {
+            return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
         },
-
-        // 找到当前日期视图的第一天，如：当前月为11月，则返回 Sun Oct 26 2014 00:00:00 GMT+0800 
-        rangeStart: function(date) {
-            return this.changeDayTo(0, new Date(date.getFullYear(), date.getMonth()), -1);
-        },  
-      
-        // 找到当前日期视图的最后一天
-        rangeEnd: function(date) {
-            return this.changeDayTo(-1 % 7, new Date(date.getFullYear(), date.getMonth() + 1, 0), 1);
+        getDaysInMonth: function (year, month) {
+            return [31, (this.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]
         },
         //返回date的月份
         getMonthName: function(date) {
