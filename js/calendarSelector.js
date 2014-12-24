@@ -631,12 +631,38 @@
             this.dateDisplayEl.on('click',function(e) {
                 self.changeToMonthView();
                 self.hightLightMonth(date);
+
+                var tmpYear = date.getFullYear();
+                if (tmpYear <= self.minYear) {
+                    self.prevYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+                } else {
+                    self.prevYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
+                }
+
+                if (tmpYear >= self.maxYear) {
+                    self.nextYearBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+                } else {
+                    self.nextYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+                }
                 e.stopPropagation();
             });
 
             this.yearDisplayEl.on('click', function(event) {
                 self.changeToYearView();
                 self.hightLightYear(date);
+                
+                var tmpYear = date.getFullYear();
+                if (tmpYear <= self.minYear) {
+                    self.prevRangeYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+                } else {
+                    self.prevRangeYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
+                }
+
+                if (tmpYear >= self.maxYear) {
+                    self.nextRangeYearBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+                } else {
+                    self.nextRangeYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+                }
                 event.stopPropagation();
             });
 
@@ -730,23 +756,34 @@
          * @param {Int} month 上一月下一月,month可为负数,负数表示上一个月
          */
         addMonth: function(amount) {
-
             var newDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + amount, this.currentDate.getDate());
 
-            //默认最小值1900年2月
-            if (this.currentDate.getFullYear() <= this.minYear && this.currentDate.getMonth() + amount <= 1){
-              
+            //默认最小值1901年1月
+            if (this.currentDate.getFullYear() <= this.minYear && this.currentDate.getMonth() + amount <= -1){
               return;
             }
             //默认最大值2049年12月
             if (this.currentDate.getFullYear() >= this.maxYear && this.currentDate.getMonth() + amount >= 12){
-              
               return;
             }
 
+            this.nextMonthBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+            this.prevMonthBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
+
             this.renderAndAddStyle(this.getSelectedDateObj(),this.clickFromMonthView);
             this.renderDateSelectArea(newDate);
-            this.place();
+
+            if (this.currentDate.getFullYear() <= this.minYear && this.currentDate.getMonth() + amount <= -1){
+                this.prevMonthBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+                return;
+            }
+
+            if (this.currentDate.getFullYear() >= this.maxYear && this.currentDate.getMonth() + amount >= 12) {
+                this.nextMonthBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+                return;
+            }
+
+
         },
 
         /**
@@ -775,12 +812,13 @@
          */
         addYear: function(amount) {
 
-            if (this.currentDate.getFullYear() + amount > this.maxYear || this.currentDate.getFullYear() + amount <= this.minYear){
+            if (this.currentDate.getFullYear() + amount > this.maxYear || this.currentDate.getFullYear() + amount <= (this.minYear-1)){
               return;
             }
 
             this.nextYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
             this.prevYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
+
             var newDate = new Date(this.currentDate.getFullYear() + amount,this.currentDate.getMonth(), this.currentDate.getDate());
             
             this.renderDateSelectArea(newDate);
@@ -791,8 +829,8 @@
               return;
             }
 
-            if (this.currentDate.getFullYear() + amount <= this.minYear){
-                this.nextYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+            if ((this.currentDate.getFullYear() + amount) <= (this.minYear-1)){              
+                this.prevYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
                 return;
             }
         },
@@ -848,6 +886,21 @@
             this.changeToMonthView();
             this.clickFromYearView = true;
             this.hightLightMonth(newDate, this.clickFromYearView);
+
+
+            if (clickedYear >= this.maxYear) {
+                this.nextYearBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+                return;
+            } else {
+                this.nextYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+            }
+
+            if (clickedYear <= this.minYear) {
+                this.prevYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+                return;
+            } else {
+                this.prevYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
+            }
         },
 
         /**
@@ -865,8 +918,24 @@
             this.hiddenInput.val(Tools.Date.formatToString(newDate, this.dateFormat));
             this.clickFromMonthView = true;
             this.renderAndAddStyle(this.getSelectedDateObj(),this.clickFromMonthView);
-
             this.changeToDateView();
+
+            //默认最小值1901年1月
+            if (this.currentDate.getFullYear() <= this.minYear && clickedMonth <= 1){
+                this.prevMonthBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
+              return;
+            } else {
+                this.prevMonthBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
+            }
+            //默认最大值2049年12月
+            if (this.currentDate.getFullYear() >= this.maxYear && clickedMonth >= 12){
+                this.nextMonthBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
+              return;
+            } else {
+                this.nextMonthBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
+            }
+
+
         },
         /**
          * 选择一个日期
