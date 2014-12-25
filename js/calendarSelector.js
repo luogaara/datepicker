@@ -11,6 +11,15 @@
  * @examples
  * new CalendarSelector({container:$("#demo"),date:'2014-11-12',dateFormat:'yyyy-MM-dd',callback});
  * 
+ * @returns {Object} dateObj 选中的日期对象
+            {String} dateString 指定格式的日期字符串（2014-12-09）
+            {Int} year 选中日期的年份 2014
+            {Int} month 选中日期的月份 12
+            {Int} date 选中日期的天 9
+            {String} lunarDate 选中日期日的农历表示 十八
+            {String} lunarMonth 选中日期月的农历表示 十月
+            {String} lunarYear 选中日期的年份表示 二零一四
+            {String} hsebYear 选中日期的干支年份表示 甲午年
  */
 ;
 (function($) {
@@ -45,8 +54,8 @@
                 },
                 /**
                  * 将时间对象格式化成指定格式的时间字符串
-                 * @param {String} date 时间对象
-                 * @param {Date} text 要格式化的文本格式
+                 * @param {Date} date 时间对象
+                 * @param {String} text 要格式化的文本格式
                  * @returns {String}
                  * @example
                  * Tools.Date.formatToString(new Date(), 'yyyy-MM-dd')
@@ -214,13 +223,11 @@
             var self = this;
             //参数初始化
             options || (options = {}); //容错
-
-            this.target = $(options.container);
             
-            if (!this.target) { //必须的参数检测
+            if (!options.container) { //必须的参数检测
                 throw new Error('[CalendarSelector] container is empty!');
             }
-
+            this.target = $(options.container);
             //date参数转换和保存
             var date = options.date || new Date();
 
@@ -233,7 +240,7 @@
             this.dateFormat = options.dateFormat || "yyyy-MM-dd";
             this.callback = options.callback || function () {};
             this.direction = options.direction || "Auto";
-            this.cid = new Date().getTime();
+            this.cid = Math.floor(Math.random() * 1000000000);
             this.pickerArea = $(Tools.Text.format(this.template.main, {cid: this.cid}));
             
             this.target.on('click', function(event) {
@@ -360,6 +367,7 @@
             $(window).on('resize',function(event) {
                 self.place();
             });
+            var throttld = self.throttle($.proxy(self.place, self),500);
             $(document).keydown($.proxy(this.keydownHandler,self));
             $(document).on('mousedown', function(ev){
                 if ($(ev.target).closest('#calendarS_' + self.cid).length == 0) {
@@ -401,7 +409,15 @@
                     //距离顶部高度
                     var dth = srcRect.top - popRect.height;
                     //获取弹出框方向
-                    tbflag = (dbh < 0 && dth > 0) ? 2 : 1;//2为上，1为下;
+                    if (dbh < 0 && dth > 0 ){
+                        tbflag = 2; //顶部够底部不够 
+                    } else if (dbh < 0 && dth < 0){
+                        tbflag = 3;//顶部底部都不够
+                    } else {
+                        tbflag = 1; //底部够或都够
+                    }
+
+                    //2为上，1为下; 3为中
                     
                     
                     //计算弹出框离左边和右边的距离
@@ -409,8 +425,15 @@
                     var dlw = srcRect.left + srcRect.width - popRect.width;
                     //距离右边的宽度
                     var drw = docRect.width - (srcRect.left + popRect.width);
-                    lrflag = (dlw > 0 && drw < 0) ? 8 : 4; //8为左，4为右
-                    
+                    if (dlw > 0 && drw < 0) {
+                        lrflag = 8; // 左边够且右边不够
+                    } else if(dlw < 0 && drw < 0) {
+                        lrflag = 12; //左右两边都不够
+                    } else {
+                        lrflag = 4; //右边够或都够
+                    }
+
+                    //8为左，4为右，12为中
                     break;
                 case 'rightBottom':
                     tbflag = 1;lrflag = 4;
@@ -423,6 +446,15 @@
                     break;
                 case 'leftTop':
                     tbflag = 2;lrflag = 8;
+                    break;
+                case 'center':
+                    tbflag = 3;lrflag = 12;
+                    break;
+                case 'leftCenter':
+                    tbflag = 3;lrflag = 8;
+                    break;
+                case 'rightCenter':
+                    tbflag = 3;lrflag = 4;
                     break;
             }
             
@@ -453,6 +485,24 @@
                         left: srcRect.left + srcRect.width - popRect.width
                     };
                     break;
+                case 11: //左中
+                    position = {
+                        top: srcRect.top - (popRect.height - srcRect.height)/2,
+                        left: srcRect.left - popRect.width
+                    }
+                    break;
+                case 15: //中中(上下左右都不够)
+                    position = {
+                        top: srcRect.top - (popRect.height - srcRect.height) / 2,
+                        left:srcRect.left
+                    }
+                    break;
+                case 7: //右中
+                    position = {
+                        top: srcRect.top - (popRect.height - srcRect.height) / 2,
+                        left: srcRect.left + srcRect.width
+                    }
+                    break;
             }
 
             this.pickerArea.css({
@@ -464,28 +514,30 @@
          * 缓存相关DOM节点及DOM区域
          **/
         keepElements: function() {
-            this.prevMonthBtn = $('#prevMonth', this.pickerArea);
-            this.nextMonthBtn = $('#nextMonth', this.pickerArea);
-            this.prevYearBtn = $('#prevYear', this.pickerArea);
-            this.nextYearBtn = $('#nextYear', this.pickerArea);
-            this.prevRangeYearBtn = $('#prevRangeYear', this.pickerArea);
-            this.nextRangeYearBtn = $('#nextRangeYear', this.pickerArea);
+            var self = this;
             
-            this.dateDisplayEl = $('#dateDisplay', this.pickerArea);
-            this.yearDisplayEl = $('#yearDisplay', this.pickerArea);
-            this.yearRangeDisplayEl = $('#yearRangeDisplay', this.pickerArea);
+            self.prevMonthBtn = $('#prevMonth', this.pickerArea);
+            self.nextMonthBtn = $('#nextMonth', this.pickerArea);
+            self.prevYearBtn = $('#prevYear', this.pickerArea);
+            self.nextYearBtn = $('#nextYear', this.pickerArea);
+            self.prevRangeYearBtn = $('#prevRangeYear', this.pickerArea);
+            self.nextRangeYearBtn = $('#nextRangeYear', this.pickerArea);
+            
+            self.dateDisplayEl = $('#dateDisplay', this.pickerArea);
+            self.yearDisplayEl = $('#yearDisplay', this.pickerArea);
+            self.yearRangeDisplayEl = $('#yearRangeDisplay', this.pickerArea);
 
-            this.yearSelectorEl = $('#datepickerYears', this.pickerArea);
-            this.yearSelectorTbodyEl = $('#yearSelectorTBody', this.yearSelectorEl);          
-            this.dateSelectorEl = $('#datepickerDays', this.pickerArea);
-            this.popView = this.dateSelectorEl;
-            this.dateSelectorTbodyEl = $('#dateSelectorTBody', this.dateSelectorEl);
-            this.monthSelectorEl = $('#datepickerMonths', this.pickerArea);
-            this.monthSelectorTbodyEl = $('#monthSelectorTBody', this.monthSelectorEl);
+            self.yearSelectorEl = $('#datepickerYears', this.pickerArea);
+            self.yearSelectorTbodyEl = $('#yearSelectorTBody', self.yearSelectorEl);          
+            self.dateSelectorEl = $('#datepickerDays', this.pickerArea);
+            self.popView = self.dateSelectorEl;
+            self.dateSelectorTbodyEl = $('#dateSelectorTBody', self.dateSelectorEl);
+            self.monthSelectorEl = $('#datepickerMonths', this.pickerArea);
+            self.monthSelectorTbodyEl = $('#monthSelectorTBody', self.monthSelectorEl);
             
 
-            this.hiddenInput = $('#currentDate',this.dateSelectorEl);
-            this.monthTdBtn = $("td", this.monthSelectorTbodyEl);
+            self.hiddenInput = $('#currentDate',self.dateSelectorEl);
+            self.monthTdBtn = $("td", this.monthSelectorTbodyEl);
             
         },
         /**
@@ -650,15 +702,14 @@
             this.yearDisplayEl.on('click', function(event) {
                 self.changeToYearView();
                 self.hightLightYear(date);
-                
                 var tmpYear = date.getFullYear();
-                if (tmpYear <= self.minYear) {
+                if (tmpYear >= self.minYear && tmpYear <= (self.minYear + 8)) {
                     self.prevRangeYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
                 } else {
                     self.prevRangeYearBtn.removeClass('i-calendarLeftNo').addClass('i-calendarLeft');
                 }
-
-                if (tmpYear >= self.maxYear) {
+                // 在1901至1908之间变灰
+                if (tmpYear <= self.maxYear && tmpYear >= (self.maxYear - 9)) {
                     self.nextRangeYearBtn.removeClass('i-calendarRight').addClass('i-calendarRightNo');
                 } else {
                     self.nextRangeYearBtn.removeClass('i-calendarRightNo').addClass('i-calendarRight');
@@ -839,13 +890,14 @@
          * 选择年份范围
          * @param {Int} amount 上10年或下10年。
          */
-        addRangeYear: function(amount) {
+        addRangeYear: function(amount) {         
 
             if (this.currentDate.getFullYear() + amount > this.maxYear){
                 return;
             }
 
-            if (this.currentDate.getFullYear() + amount <= this.minYear) {
+            //可能会翻到1900年的情况
+            if (this.currentDate.getFullYear() + amount < (this.minYear-2)) {
                 return;
             }
 
@@ -866,7 +918,7 @@
                 return;
             }
 
-            if (this.currentDate.getFullYear() + amount <= this.minYear) {
+            if (this.currentDate.getFullYear() + amount < this.minYear-2) {
                 this.prevRangeYearBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
                 return;
             }
@@ -996,7 +1048,6 @@
                 pickerDate.setDate(0);
             };
             this.renderAndAddStyle(pickerDate);
-            this.place();
         },
         // 返回指定两个日期之间的天数 如果是42天，则返回41
         daysBetween: function(start, end) {
@@ -1051,7 +1102,44 @@
                 return;
             }
             event.preventDefault();
-        }
+        },
+        //以下函数借于underscore
+        nowStamp : Date.now || function() {
+            return new Date().getTime();
+        },
+
+        throttle: function(func, wait, options) {
+            var self = this;
+            var context, args, result;
+            var timeout = null;
+            var previous = 0;
+            if (!options) options = {};
+            var later = function() {
+              previous = options.leading === false ? 0 : self.nowStamp();
+              timeout = null;
+              result = func.apply(context, args);
+              if (!timeout) context = args = null;
+            };
+            return function() {
+              var now = self.nowStamp();
+              if (!previous && options.leading === false) previous = now;
+              var remaining = wait - (now - previous);
+              context = this;
+              args = arguments;
+              if (remaining <= 0 || remaining > wait) {
+                if (timeout) {
+                  clearTimeout(timeout);
+                  timeout = null;
+                }
+                previous = now;
+                result = func.apply(context, args);
+                if (!timeout) context = args = null;
+              } else if (!timeout && options.trailing !== false) {
+                timeout = setTimeout(later, remaining);
+              }
+              return result;
+            };
+          }
     };
     //构造器
     CalendarSelector.prototype.constructor = CalendarSelector;
