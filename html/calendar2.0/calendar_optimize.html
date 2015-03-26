@@ -15,9 +15,7 @@
     </head>
     <body>
 	   <div style="left:200px;position:absolute">
-            <button id="demo1">2222</button> 
-            <button id="demo2" >按钮二</button>
-            <div id="getDate"></div>
+            <button id="demo1">点我看看！</button> 
         </div>
         
         <script>
@@ -25,23 +23,12 @@
         $(function() {
           var calendar = new CalendarSelector({
             container:$("#demo1"),
-            date:'2014-12-22',
+            date:'',
             dateFormat:'yyyy-MM-dd',
             callback: function(date){
                 console.log(date);
                 $("#getDate").html('您已选择：' + date.dateString);
-            }});
-
-          var calendar = new CalendarSelector({
-            container:$("#demo2"),
-            date:'2014-12-20',
-            dateFormat:'yyyy-MM-dd',
-            callback: function(date){
-                console.log(date);
-                $("#getDate").html('您已选择：' + date);
-            }});
-
-          
+            }});         
         });
     </script>
     </body>

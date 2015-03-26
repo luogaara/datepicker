@@ -243,6 +243,7 @@
             this.cid = Math.floor(Math.random() * 1000000000);
             this.pickerArea = $(Tools.Text.format(this.template.main, {cid: this.cid}));
             
+            this.lastTargetTop = this.target.offset().top;
             this.target.on('click', function(event) {
                 self.show();
             });
@@ -349,7 +350,7 @@
             var calendarAreaEL = $('#calendarS_' + this.cid);
 
             if (calendarAreaEL.length == 0){//还没渲染
-                console.log('no render');
+                //console.log('no render');
                 
                 this.pickerArea.appendTo('body');
                 this.keepElements();
@@ -357,7 +358,7 @@
                 this.renderAndAddStyle(this.date);
                 this.initEvents();
             }else{
-                console.log('already render');
+                //console.log('already render');
                 this.renderAndAddStyle(this.date); //获取到刚刚点击的日期
                 calendarAreaEL.css("display", "block");
                 this.changeToDateView(); // 默认显示选择日期界面
@@ -367,7 +368,17 @@
             $(window).on('resize',function(event) {
                 self.place();
             });
-            var throttld = self.throttle($.proxy(self.place, self),500);
+
+            this.scrollInterval = setInterval(function(){
+                // 检查目标元素坐标是否有变化
+                var newTop =  self.target.offset().top;
+                if (newTop !== self.lastTargetTop) {
+                    //重新定位
+                    self.place();
+                    self.lastTargetTop = newTop;
+                }
+            },500);
+
             $(document).keydown($.proxy(this.keydownHandler,self));
             $(document).on('mousedown', function(ev){
                 if ($(ev.target).closest('#calendarS_' + self.cid).length == 0) {
@@ -380,6 +391,7 @@
             $(window).off('resize', this.place);
             $(document).off('mousedown', this.hide);
             $(document).off("keydown", this.keydownHandler);
+            window.clearInterval(this.scrollInterval);
             this.pickerArea.css("display", "none");            
         },
 
@@ -397,8 +409,8 @@
             }, this.target.offset());
             //获取弹框的尺寸
             var popRect = {
-                height: this.popView.height(),
-                width: this.popView.width()
+                height: this.dateSelectorEl.height(),
+                width: this.dateSelectorEl.width()
             };
             var tbflag = 0,lrflag = 0;
             switch(direction){
@@ -782,22 +794,21 @@
         
         //切换视图
         changeToYearView: function(){
-            this.popView = this.yearSelectorEl;
+
             this.dateSelectorEl.hide();
             this.monthSelectorEl.hide();
             this.yearSelectorEl.show();
         },
         changeToMonthView: function() {
-            this.popView = this.monthSelectorEl;
+
             this.dateSelectorEl.hide();
             this.monthSelectorEl.show();
-            this.place();
             this.yearSelectorEl.hide();
         },
         changeToDateView: function() {
-            this.popView = this.dateSelectorEl;
+
             this.dateSelectorEl.show();
-            this.place();
+
             this.monthSelectorEl.hide();
             this.yearSelectorEl.hide();
         },
@@ -972,6 +983,7 @@
             this.renderAndAddStyle(this.getSelectedDateObj(),this.clickFromMonthView);
             this.changeToDateView();
 
+            //为了切样式也是醉了。。
             //默认最小值1901年1月
             if (this.currentDate.getFullYear() <= this.minYear && clickedMonth <= 1){
                 this.prevMonthBtn.removeClass('i-calendarLeft').addClass('i-calendarLeftNo');
@@ -988,6 +1000,9 @@
             }
 
 
+        },
+        setDate: function(date) {
+            this.date = date;
         },
         /**
          * 选择一个日期
@@ -1027,10 +1042,7 @@
             this.hide();
             
         },
-        //设置某天
-        setDate: function(date) {
-            this.renderAndAddStyle(date);
-        },
+       
         // 翻天处理
         switchTo: function(amount) {
             var selectedDate = this.getSelectedDateObj();
@@ -1102,44 +1114,8 @@
                 return;
             }
             event.preventDefault();
-        },
-        //以下函数借于underscore
-        nowStamp : Date.now || function() {
-            return new Date().getTime();
-        },
+        }
 
-        throttle: function(func, wait, options) {
-            var self = this;
-            var context, args, result;
-            var timeout = null;
-            var previous = 0;
-            if (!options) options = {};
-            var later = function() {
-              previous = options.leading === false ? 0 : self.nowStamp();
-              timeout = null;
-              result = func.apply(context, args);
-              if (!timeout) context = args = null;
-            };
-            return function() {
-              var now = self.nowStamp();
-              if (!previous && options.leading === false) previous = now;
-              var remaining = wait - (now - previous);
-              context = this;
-              args = arguments;
-              if (remaining <= 0 || remaining > wait) {
-                if (timeout) {
-                  clearTimeout(timeout);
-                  timeout = null;
-                }
-                previous = now;
-                result = func.apply(context, args);
-                if (!timeout) context = args = null;
-              } else if (!timeout && options.trailing !== false) {
-                timeout = setTimeout(later, remaining);
-              }
-              return result;
-            };
-          }
     };
     //构造器
     CalendarSelector.prototype.constructor = CalendarSelector;
@@ -1177,27 +1153,27 @@
     Lunar.prototype.Weeks = "日一二三四五六".split('');
     Lunar.prototype.WeekStart = "星期";
     Lunar.prototype.CalendarData = [
-        0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2,//1900-1909
-        0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540, 0x0d6a0, 0x0ada2, 0x095b0, 0x14977,
-        0x04970, 0x0a4b0, 0x0b4b5, 0x06a50, 0x06d40, 0x1ab54, 0x02b60, 0x09570, 0x052f2, 0x04970,
-        0x06566, 0x0d4a0, 0x0ea50, 0x06e95, 0x05ad0, 0x02b60, 0x186e3, 0x092e0, 0x1c8d7, 0x0c950,
-        0x0d4a0, 0x1d8a6, 0x0b550, 0x056a0, 0x1a5b4, 0x025d0, 0x092d0, 0x0d2b2, 0x0a950, 0x0b557,
-        0x06ca0, 0x0b550, 0x15355, 0x04da0, 0x0a5d0, 0x14573, 0x052d0, 0x0a9a8, 0x0e950, 0x06aa0,//1950-1959
-        0x0aea6, 0x0ab50, 0x04b60, 0x0aae4, 0x0a570, 0x05260, 0x0f263, 0x0d950, 0x05b57, 0x056a0,
-        0x096d0, 0x04dd5, 0x04ad0, 0x0a4d0, 0x0d4d4, 0x0d250, 0x0d558, 0x0b540, 0x0b5a0, 0x195a6,
-        0x095b0, 0x049b0, 0x0a974, 0x0a4b0, 0x0b27a, 0x06a50, 0x06d40, 0x0af46, 0x0ab60, 0x09570,
-        0x04af5, 0x04970, 0x064b0, 0x074a3, 0x0ea50, 0x06b58, 0x055c0, 0x0ab60, 0x096d5, 0x092e0,
-        0x0c960, 0x0d954, 0x0d4a0, 0x0da50, 0x07552, 0x056a0, 0x0abb7, 0x025d0, 0x092d0, 0x0cab5,//2000-2009
-        0x0a950, 0x0b4a0, 0x0baa4, 0x0ad50, 0x055d9, 0x04ba0, 0x0a5b0, 0x15176, 0x052b0, 0x0a930,
-        0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260, 0x0ea65, 0x0d530,
-        0x05aa0, 0x076a3, 0x096d0, 0x04bd7, 0x04ad0, 0x0a4d0, 0x1d0b6, 0x0d250, 0x0d520, 0x0dd45,
-        0x0b5a0, 0x056d0, 0x055b2, 0x049b0, 0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0,
-        0x14b63, 0x09370, 0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0,//2050-2059
-        0x0a2e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0, 0x0a6d0, 0x055d4,
-        0x052d0, 0x0a9b8, 0x0a950, 0x0a4a0, 0x0b6a6, 0x0ad50, 0x055a0, 0x0aba0, 0x0a5b0, 0x052b0,
-        0x0b273, 0x06930, 0x07337, 0x06aa0, 0x0ad50, 0x14b55, 0x04b60, 0x0a570, 0x054e4, 0x0d260,
-        0x0e968, 0x0d520, 0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a4d0, 0x0d150, 0x0f252,
-        0x0d520 //2100
+            0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,//1900-1909
+            0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,//1910-1919
+            0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,//1920-1929
+            0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,//1930-1939
+            0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,//1940-1949
+            0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,//1950-1959
+            0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,//1960-1969
+            0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,//1970-1979
+            0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,//1980-1989
+            0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,//1990-1999
+            0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,//2000-2009
+            0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,//2010-2019
+            0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,//2020-2029
+            0x05aa0,0x076a3,0x096d0,0x04bd7,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,//2030-2039
+            0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,//2040-2049
+            0x14b63,0x09370,0x049f8,0x04970,0x064b0,0x168a6,0x0ea50, 0x06b20,0x1a6c4,0x0aae0,//2050-2059
+            0x0a2e0,0x0d2e3,0x0c960,0x0d557,0x0d4a0,0x0da50,0x05d55,0x056a0,0x0a6d0,0x055d4,//2060-2069
+            0x052d0,0x0a9b8,0x0a950,0x0b4a0,0x0b6a6,0x0ad50,0x055a0,0x0aba4,0x0a5b0,0x052b0,//2070-2079
+            0x0b273,0x06930,0x07337,0x06aa0,0x0ad50,0x14b55,0x04b60,0x0a570,0x054e4,0x0d160,//2080-2089
+            0x0e968,0x0d520,0x0daa0,0x16aa6,0x056d0,0x04ae0,0x0a9d4,0x0a2d0,0x0d150,0x0f252,//2090-2099
+            0x0d520
     ];
 
     Lunar.prototype.setLunar = function (date) {
